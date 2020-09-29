@@ -1,3 +1,6 @@
+/* font-family: 'Saira', sans-serif;
+font-family: 'Saira Condensed', sans-serif; */
+
 * {
     margin: 0;
     padding: 0;
@@ -24,5 +27,80 @@ h1 {
     display: block;
     width: 100%;
     margin: 6vh auto;
+    font-family: 'Saira', sans-serif;
     text-align: center;
+    text-transform: uppercase;
+    font-size: 1.8em;
+    letter-spacing: 2px;
+    color: #D97F18;
+    font-weight: 400;
+}
+
+h2 {
+    display: block;
+    width: 100%;
+    margin: 6vh auto 0;
+    font-family: 'Saira Condensed', sans-serif;
+    text-align: center;
+    font-size: 1.1em;
+    color: #D97F18;
+    font-weight: 300;
+}
+
+ul {
+
+    display: block;
+    width: 30%;
+    margin: 5vh auto;
+    text-align: center;
+    color: #E6420E;
+
+
+}
+
+li:nth-child(even) {
+    color: #5002D9;
+}
+
+li {
+    font-family: 'Saira Condensed', sans-serif;
+    line-height: 1.2em;
+    font-size: 1.6em;
+    /* potrzebujemy tutaj koniecznie animacji  w tym celu trzeba podziałać z transition*/
+}
+
+.hours-list {
+    height: 32vh;
+    max-height: 32vh;
+    overflow: scroll;
+}
+
+h2:nth-of-type(2) {
+    margin: 10vh auto 0;
+}
+
+.remaining-time {
+    margin-top: 3vh;
+    text-align: center;
+    font-size: 1.6em;
+    font-family: 'Saira Condensed', sans-serif;
+    color: #E6420E;
+}
+
+.feed-btn {
+    display: block;
+    margin: 3vh auto;
+    padding: 0 15px;
+    border-radius: 20px;
+    font-size: 1.6em;
+    line-height: 1.5em;
+    background-color: #F3C186;
+    border: 2px solid #D97F18;
+    text-transform: uppercase;
+    font-family: 'Saira', sans-serif;
+    letter-spacing: 1px;
+    color: #D97F18;
+
+
+
 }
