@@ -8,11 +8,6 @@ const feed = () => {
     document.querySelector('ul').appendChild(li);
 
 
-    setTimeout(() => {
-            li.classList.add('active');
-        },
-        10); // przenieść to trzeba na osobne zgadnienie związane z dodawaniem li i animacją
-
 }
 
 
