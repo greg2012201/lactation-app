@@ -52,8 +52,9 @@ ul {
     display: block;
     width: 30%;
     margin: 5vh auto;
-    text-align: center;
+    text-align: left;
     color: #E6420E;
+
 
 
 }
@@ -62,12 +63,23 @@ li:nth-child(even) {
     color: #5002D9;
 }
 
+
 li {
     font-family: 'Saira Condensed', sans-serif;
-    line-height: 1.2em;
-    font-size: 1.6em;
+    font-size: 0;
+    transition: .1s;
+    opacity: 0;
     /* potrzebujemy tutaj koniecznie animacji  w tym celu trzeba podziałać z transition*/
 }
+
+li.active {
+    line-height: 1.2em;
+    font-size: 1.6em;
+    opacity: 1;
+
+    text-align: center;
+}
+
 
 .hours-list {
     height: 32vh;
