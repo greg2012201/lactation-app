@@ -13,11 +13,8 @@ class Counter {
 
     countingDown(minute, hour, second) {
         let time = 1000;
-
-        if (this.indexInterval) {
-            clearInterval(this.indexInterval);
-
-        } // zastanowić się czy nie dodać tego jako osobną metodę w tej klasie
+        if (this.indexInterval) this.stopAndReset();;
+        // zastanowić się czy nie dodać tego jako osobną metodę w tej klasie
         this.indexInterval = setInterval(() => {
             second += 1;
             console.log(second);
@@ -26,8 +23,11 @@ class Counter {
 
         }, time);
 
+    }
 
+    stopAndReset() {
 
+        clearInterval(this.indexInterval);
 
 
 
