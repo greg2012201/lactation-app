@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(230, 176, 14, 14%);
+}
+
+.reset {
+    position: absolute;
+    top: 1%;
+    right: 2%;
+    border: none;
+    font-size: 1.5em;
+    color: #E6420E;
+    cursor: pointer;
+}
+
+
+
+h1 {
+    display: block;
+    width: 100%;
+    margin: 6vh auto;
+    text-align: center;
+}
