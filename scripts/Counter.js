@@ -14,7 +14,7 @@ class Counter {
         let time = 1000;
         let seconds = 60;
         let minutes = 60;
-        let hours = 2;
+        let hours = 1;
         if (this.indexInterval) this.stopAndReset();
         // zastanowić się czy nie dodać tego jako osobną metodę w tej klasie
         this.indexInterval = setInterval(() => {
