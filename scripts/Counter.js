@@ -11,10 +11,11 @@ class Counter {
     }
 
     countingDown() {
-        let time = 1;
+        let time = 1000;
         let seconds = 60;
         let minutes = 60;
         let hours = 1;
+
         if (this.indexInterval) this.stopAndReset();
         this.indexInterval = setInterval(() => {
             seconds -= 1;
@@ -27,7 +28,7 @@ class Counter {
                 hours -= 1;
             }
             this.print(seconds, minutes, hours)
-            console.log(seconds, minutes, hours);
+
         }, time);
 
         // porównać z innymi zegarami albo minutnikami czy dobrze działa 
