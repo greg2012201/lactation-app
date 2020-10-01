@@ -8,7 +8,9 @@ font-family: 'Saira Condensed', sans-serif; */
 }
 
 body {
+    max-width: 1280px;
     background-color: rgba(230, 176, 14, 14%);
+
 }
 
 /* .reset {
