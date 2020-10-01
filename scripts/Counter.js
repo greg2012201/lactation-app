@@ -1,5 +1,8 @@
 class Counter {
     constructor() {
+        this.secondsSpan = document.querySelector('.seconds');
+        this.minutesSpan = document.querySelector('.minutes');
+        this.hoursSpan = document.querySelector('.hours');
 
     }
 
@@ -14,9 +17,10 @@ class Counter {
         let time = 1000;
         let seconds = 60;
         let minutes = 60;
-        let hours = 1;
+        let hours = 1; // może będzie tzreba to wrzucić w this żeby było  globalnie w obiekcie
 
-        if (this.indexInterval) this.stopAndReset();
+
+        if (this.indexInterval) this.stopAndReset(seconds, minutes, hours);
         this.indexInterval = setInterval(() => {
             seconds -= 1;
             if (seconds == 1) seconds = 60;
@@ -37,29 +41,35 @@ class Counter {
 
     print(seconds, minutes, hours) {
 
-        const secondsSpan = document.querySelector('.seconds');
-        const minutesSpan = document.querySelector('.minutes');
-        const hoursSpan = document.querySelector('.hours');
+        this.secondsSpan = document.querySelector('.seconds');
+        this.minutesSpan = document.querySelector('.minutes');
+        this.hoursSpan = document.querySelector('.hours');
 
-        seconds <= 9 ? secondsSpan.textContent = `0${seconds}` : secondsSpan.textContent = seconds;
+        seconds <= 9 ? this.secondsSpan.textContent = `0${seconds}` : this.secondsSpan.textContent = seconds;
 
 
 
-        minutes <= 9 ? minutesSpan.textContent = `0${minutes}` : minutesSpan.textContent = minutes;
+        minutes <= 9 ? this.minutesSpan.textContent = `0${minutes}` : this.minutesSpan.textContent = minutes;
 
-        hours <= 9 ? hoursSpan.textContent = `0${hours}` : hoursSpan.textContent = hours;
+        hours <= 9 ? this.hoursSpan.textContent = `0${hours}` : this.hoursSpan.textContent = hours;
 
-        if (seconds == 60) secondsSpan.textContent = '00'
-        else if (minutes == 60) minutesSpan.textContent = '00';
+        if (seconds == 60) this.secondsSpan.textContent = '00'
+        else if (minutes == 60) this.minutesSpan.textContent = '00';
 
         // trzeba do bardziej zoptymalizować stworzyć może jakąś metodę co robi to wszystko na raz żeby kodu nie kopiować i zaobaczyć czy wtedy będzie bardziej optymalnie
 
     }
 
-    stopAndReset() {
+    stopAndReset(seconds, minutes, hours) {
 
         clearInterval(this.indexInterval);
+        seconds = 60;
+        minutes = 60;
+        hours = 60;
 
+        this.secondsSpan.textContent = '00';
+        this.minutesSpan.textContent = '00';
+        this.hoursSpan.textContent = '02'; // można określić w obiekcie sztywno co jest automatycznie printowane
 
 
     }
