@@ -10,7 +10,7 @@ class Counter {
         /* https://www.tutorialrepublic.com/faq/how-to-get-day-month-and-year-from-a-date-object-in-javascript.php */
 
 
-        this.targetTime();
+
 
     }
 
@@ -31,7 +31,7 @@ class Counter {
 
         if (this.indexInterval) this.stopAndReset(seconds, minutes, hours);
         this.indexInterval = setInterval(() => {
-
+            this.getEndTimeAndNowTime();
             /* this.targetTime(); */
 
             seconds -= 1;
@@ -85,43 +85,44 @@ class Counter {
 
 
     }
-    targetTime() { // tutaj trzeba wyodrębnić dokładnie godzinę stopu
-
-
-
-        /*    this.endTime = new Date(`${(this.hour +2)}:${this.minute}:${this.second}`);
-           console.log(this.endTime); // tu jeszcze potrzebujemy pobrać datę w tak aby pasowało to wsszystko do argumentu
-
-
-
-           console.log(this.endTime);
-           return this.distanceTime = `${(this.hour +2)-this.hour}:${this.minute - this.minute}:${this.second - this.second}`; */ // rozbić to na osobne godziny minuty sekundy
-
-
-        this.date = new Date();
-        this.day = this.date.getDate();
-        this.day = this.day < 10 ? `0${this.day}` : this.day;
-        this.year = this.date.getFullYear();
-        this.month = this.date.getMonth() + 1;
-
-        this.month = this.month < 10 ? `0${this.month}` : this.month;
-        this.hour = this.date.getHours();
-        this.hour = this.hour < 10 ? `0${this.hour}` : this.hour;
-        this.minute = this.date.getMinutes();
-        this.minute = this.minute < 10 ? `0${this.minute}` : this.minute;
-        this.second = this.date.getSeconds();
-        this.second = this.second < 10 ? `0${this.second}` : this.second;
-
-        /* console.log(`${this.year}-${this.day}-${this.month} ${this.hour +2}:${this.minute}:${this.second}`); */
-
-        this.endTime = new Date(`${this.year}-${this.day}-${this.month} ${this.hour +2}:${this.minute}:${this.second}`).getTime();;
+    getEndTimeAndNowTime() { // tutaj trzeba wyodrębnić dokładnie godzinę stopu
 
 
 
 
 
 
+        const date = new Date();
+        let day = date.getDate();
+        day = day < 10 ? `0${day}` : day;
+        const year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        month = month < 10 ? `0${month}` : month;
+        let hour = date.getHours();
+        hour = hour < 10 ? `0${hour}` : hour;
+        let minute = date.getMinutes();
+        minute = minute < 10 ? `0${minute}` : minute;
+        let second = date.getSeconds();
+        second = second < 10 ? `0${second}` : second;
 
+
+
+        const endTime = new Date(`${year}-${day}-${month} ${hour +2}:${minute}:${second}`).getTime();;
+
+        const nowTime = new Date().getTime();
+
+        console.log(this.endTime);
+        this.getDifferenceBetweenDates(this.endTime);
+
+
+
+
+
+
+
+    }
+
+    getDifferenceBetweenDates(endTime, nowTime) {
 
 
 
