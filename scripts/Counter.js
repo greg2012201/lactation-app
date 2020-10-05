@@ -4,7 +4,7 @@ class Counter {
         this.minutesSpan = document.querySelector('.minutes');
         this.hoursSpan = document.querySelector('.hours');
 
-        /*   */
+
         // i tutaj powinien polecieć template scting
         /* https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Date */
         /* https://www.tutorialrepublic.com/faq/how-to-get-day-month-and-year-from-a-date-object-in-javascript.php */
@@ -16,12 +16,13 @@ class Counter {
 
     render() {
 
-        this.countingDown();
-
-
+        this.countingDown(this.getEndTime());
     }
 
-    countingDown() {
+    countingDown(endTimeAndNowTime) {
+
+
+
 
         let time = 1000;
         let seconds = this.second;
@@ -31,9 +32,9 @@ class Counter {
 
         if (this.indexInterval) this.stopAndReset(seconds, minutes, hours);
         this.indexInterval = setInterval(() => {
-            this.getEndTimeAndNowTime();
-            /* this.targetTime(); */
 
+            /* this.targetTime(); */
+            this.getDifferenceBetweenDates(this.getNowTime(), endTimeAndNowTime);
             seconds -= 1;
             if (seconds == 1) seconds = 60;
             else if (seconds == 59) {
@@ -85,16 +86,17 @@ class Counter {
 
 
     }
-    getEndTimeAndNowTime() { // tutaj trzeba wyodrębnić dokładnie godzinę stopu
+
+    getEndTime() { // tutaj trzeba wyodrębnić dokładnie godzinę stopu
 
 
 
 
 
 
-        const date = new Date();
+        const date = new Date(); // przypisać to jako funkcje prywatne dla metody ? 
         let day = date.getDate();
-        day = day < 10 ? `0${day}` : day;
+        day = day < 10 ? `0${day}` : day; // to może robić inna metoda tutaj i trzeba nad tym pomyśleć - powinna ona zwracać to co przerobi
         const year = date.getFullYear();
         let month = date.getMonth() + 1;
         month = month < 10 ? `0${month}` : month;
@@ -104,15 +106,14 @@ class Counter {
         minute = minute < 10 ? `0${minute}` : minute;
         let second = date.getSeconds();
         second = second < 10 ? `0${second}` : second;
+        // zadtanowić się nad napisaniem funkcji odpowiedzialnej za walidacje godzin sekund dni minut itp aby dodawało 0;
+
+        console.log(minute);
+        const endTime = new Date(`${year}-${month}-${day} ${hour +2}:${minute}:${second}`).getTime();
 
 
+        return endTime
 
-        const endTime = new Date(`${year}-${day}-${month} ${hour +2}:${minute}:${second}`).getTime();;
-
-        const nowTime = new Date().getTime();
-
-        console.log(this.endTime);
-        this.getDifferenceBetweenDates(this.endTime);
 
 
 
@@ -122,8 +123,21 @@ class Counter {
 
     }
 
-    getDifferenceBetweenDates(endTime, nowTime) {
+    getNowTime() {
+        return new Date().getTime();
+    }
 
+
+
+    getDifferenceBetweenDates(nowTime, endTime) {
+
+
+
+        let hours = Math.floor((endTime / (1000 * 60 * 60) - nowTime / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((endTime / (1000 * 60) - nowTime / (1000 * 60)) % 60);
+        const seconds = Math.floor((endTime / 1000 - nowTime / 1000) % 60);
+
+        console.log(hours, minutes, seconds);
 
 
     }
