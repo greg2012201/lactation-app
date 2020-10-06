@@ -17,6 +17,7 @@ class Counter {
     render() {
 
         this.countingDown(this.getEndTime());
+        // tutaj normalnie dopalić nowy licznik 
     }
 
     countingDown(endTimeAndNowTime) {
@@ -27,7 +28,7 @@ class Counter {
         let time = 1000;
         let seconds = this.second;
         let minutes = 60;
-        let hours = 1; // może będzie tzreba to wrzucić w this żeby było  globalnie w obiekcie
+        let hours = 1; // jak tutaj przekazać  godziny minuty i sekundy ? może dać tutaj puste setinterval i odpalać funkcję która przerabia globalne zmienne z tego obiektu albo tej dunkcji ? czy przekazać wszystko w tablicy
 
 
         if (this.indexInterval) this.stopAndReset(seconds, minutes, hours);
@@ -35,7 +36,7 @@ class Counter {
 
             /* this.targetTime(); */
             this.getDifferenceBetweenDates(this.getNowTime(), endTimeAndNowTime);
-            seconds -= 1;
+            /* seconds -= 1;
             if (seconds == 1) seconds = 60;
             else if (seconds == 59) {
 
@@ -43,7 +44,7 @@ class Counter {
             } else if (minutes == 1) {
                 minutes = 60;
                 hours -= 1;
-            }
+            } */
             this.print(seconds, minutes, hours)
 
         }, time);
@@ -94,6 +95,7 @@ class Counter {
 
 
 
+
         const date = new Date(); // przypisać to jako funkcje prywatne dla metody ? 
         let day = date.getDate();
         day = day < 10 ? `0${day}` : day; // to może robić inna metoda tutaj i trzeba nad tym pomyśleć - powinna ona zwracać to co przerobi
@@ -106,11 +108,12 @@ class Counter {
         minute = minute < 10 ? `0${minute}` : minute;
         let second = date.getSeconds();
         second = second < 10 ? `0${second}` : second;
-        // zadtanowić się nad napisaniem funkcji odpowiedzialnej za walidacje godzin sekund dni minut itp aby dodawało 0;
+        console.log(second);
+        // dodawanie 0 powinno się odbywać raczej w renderze 
 
-        console.log(minute);
-        const endTime = new Date(`${year}-${month}-${day} ${hour +2}:${minute}:${second}`).getTime();
 
+        const endTime = new Date(`${year}-${month}-${day} ${hour +2}:${minute}:${second +1}`).getTime();
+        console.log(`${year}-${month}-${day} ${hour +2}:${minute}:${second}`);
 
         return endTime
 
@@ -131,7 +134,7 @@ class Counter {
 
     getDifferenceBetweenDates(nowTime, endTime) {
 
-
+        // to w zasadzie jest już counter więc trzbea to pod to robić i wykonać obliczenia w set interval ? 
 
         let hours = Math.floor((endTime / (1000 * 60 * 60) - nowTime / (1000 * 60 * 60)) % 24);
         const minutes = Math.floor((endTime / (1000 * 60) - nowTime / (1000 * 60)) % 60);
