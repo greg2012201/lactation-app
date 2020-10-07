@@ -17,7 +17,7 @@ class Counter { // zastanawiam się czy lista nie powinna rozszerza countera
         const time = 1000;
 
 
-        /*  if (this.indexInterval) this.stopAndReset(this.seconds, this.minutes, this.hours); */ //<-- tutaj użyć ternery operator zamiast robić if else 
+        if (this.indexInterval) this.stopAndReset(); //<-- tutaj użyć ternery operator zamiast robić if else 
         this.indexInterval = setInterval(() => {
             this.getDifferenceBetweenDates(this.getNowTime(), endTime);
             this.print();
@@ -50,12 +50,12 @@ class Counter { // zastanawiam się czy lista nie powinna rozszerza countera
 
     }
 
-    stopAndReset(seconds, minutes, hours) {
+    stopAndReset() {
 
         clearInterval(this.indexInterval);
-        seconds = 60;
+        /* seconds = 60;
         minutes = 60;
-        hours = 60;
+        hours = 60; */
 
         this.secondsSpan.textContent = '00';
         this.minutesSpan.textContent = '00';
@@ -99,14 +99,11 @@ class Counter { // zastanawiam się czy lista nie powinna rozszerza countera
 
     getNowTime() {
         return new Date().getTime();
-    }
+    } // dac do do maina ? 
 
 
 
     getDifferenceBetweenDates(nowTime, endTime) {
-
-        // to w zasadzie jest już counter więc trzbea to pod to robić i wykonać obliczenia w set interval ? 
-
 
 
 
@@ -116,8 +113,6 @@ class Counter { // zastanawiam się czy lista nie powinna rozszerza countera
         // zretunrować to do printa 
         console.log(this.seconds);
         return this.seconds
-
-
 
     }
 
