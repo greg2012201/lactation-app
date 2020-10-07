@@ -1,6 +1,6 @@
 class Counter {
 
-    constructor(getNowTime, getEndTime /* zrobić tak ? */ ) {
+    constructor(getNowTime, getEndTime) {
 
         this.getEndTime = getEndTime;
         this.getNowTime = getNowTime;
@@ -32,10 +32,16 @@ class Counter {
 
     }
     getDifferenceBetweenDates(nowTime, endTime) {
-        this.hours = Math.floor((endTime / (1000 * 60 * 60) - nowTime / (1000 * 60 * 60)) % 24); // zmienić nazwy zmiennych na np. secondsToEnd
+
+
+        this.hours = Math.floor((endTime / (1000 * 60 * 60) - nowTime / (1000 * 60 * 60)) % 24) /* + (2 * 60 * 60 * 1000); */
+
+        // zmienić nazwy zmiennych na np. secondsToEnd
         this.minutes = Math.floor((endTime / (1000 * 60) - nowTime / (1000 * 60)) % 60);
         this.seconds = Math.floor((endTime / 1000 - nowTime / 1000) % 60);
-        return this.seconds
+
+        console.log(this.hours);
+
 
     }
 
@@ -51,6 +57,10 @@ class Counter {
 
         this.hours <= 9 ? this.hoursSpan.textContent = `0${this.hours}` : this.hoursSpan.textContent = this.hours;
 
+        // jest problem na przełomie dnia 
+        console.log(this.hours, this.minutes, this.seconds);
+        /* console.log(this.hours == -1 ? this.hours = 0 : this.hours, this.minutes, this.seconds); */
+
         // trzeba do bardziej zoptymalizować stworzyć może jakąś metodę co robi to wszystko na raz żeby kodu nie kopiować i zaobaczyć czy wtedy będzie bardziej optymalnie
 
     }
@@ -62,34 +72,8 @@ class Counter {
         this.minutes = 0;
         this.hours = 2;
         this.print();
-
-        /*    this.secondsSpan.textContent = this.seconds;
-           this.minutesSpan.textContent = this.minutes;
-           this.hoursSpan.textContent = this.hours; */ // można określić w obiekcie sztywno co jest automatycznie printowane
-
-
     }
 
-    /*  getEndTime() { // to trzeba przenieść do time
-
-         const date = new Date();
-         const day = date.getDate();
-         const year = date.getFullYear();
-         const month = date.getMonth() + 1;
-         const hour = date.getHours();
-         const minute = date.getMinutes();
-         const second = date.getSeconds();
-
-         const endTime = new Date(`${year}-${month}-${day} ${hour +2}:${minute}:${second +1}`).getTime();
-
-
-         return endTime
-
-     }
-
-     getNowTime() {
-         return new Date().getTime();
-     } // to musi polecieć do klasy time */
 
 
 

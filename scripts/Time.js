@@ -1,19 +1,27 @@
 class Time {
 
 
-    getEndTime() { // to trzeba przenieść do time
+    getEndTime() {
+
+        Date.prototype.addHours = function (h) {
+            this.setTime(this.getTime() + (h * 60 * 60 * 1000));
+            return this;
+        } // trzeba wykminić to w innej metodzie
+
 
         const date = new Date();
+        date.addHours(2);
+
         const day = date.getDate();
         const year = date.getFullYear();
         const month = date.getMonth() + 1;
         const hour = date.getHours();
         const minute = date.getMinutes();
         const second = date.getSeconds();
+        console.log(date.getHours());
+        const endTime = /* new Date('2020-10-07 22:33').getTime(); */ new Date(`${year}-${month}-${day} ${hour}:${minute}:${second +1}`).getTime();
 
-        const endTime = new Date(`${year}-${month}-${day} ${hour +2}:${minute}:${second +1}`).getTime();
-
-
+        console.log(`${year}-${month}-${day} ${hour}:${minute}:${second +1}`);
         return endTime
 
     }
