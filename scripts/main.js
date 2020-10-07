@@ -1,4 +1,6 @@
-const counterx = new Counter;
+const time = new Time();
+const counter = new Counter(time.getNowTime, time.getEndTime);
+
 
 
 const feed = () => {
@@ -6,14 +8,13 @@ const feed = () => {
     // createAndAddElement() w niej animation animation;
     // 
 
-    counterx.init();
+    counter.init();
 
 }
-
 document.querySelector('.feed-btn').addEventListener('click', feed);
 
 const reset = () => {
 
-    counterx.stopAndReset();
+    counter.stopAndReset();
 }
 document.querySelector('.reset').addEventListener('click', reset);

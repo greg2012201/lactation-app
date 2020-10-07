@@ -1,5 +1,9 @@
-class Counter { // zastanawiam się czy lista nie powinna rozszerza countera
-    constructor( /* getNowTime */ /* zrobić tak ? */ ) {
+class Counter {
+
+    constructor(getNowTime, getEndTime /* zrobić tak ? */ ) {
+
+        this.getEndTime = getEndTime;
+        this.getNowTime = getNowTime;
         this.secondsSpan = document.querySelector('.seconds');
         this.minutesSpan = document.querySelector('.minutes');
         this.hoursSpan = document.querySelector('.hours');
@@ -66,26 +70,26 @@ class Counter { // zastanawiam się czy lista nie powinna rozszerza countera
 
     }
 
-    getEndTime() { // tutaj trzeba wyodrębnić dokładnie godzinę stopu
+    /*  getEndTime() { // to trzeba przenieść do time
 
-        const date = new Date();
-        let day = date.getDate();
-        const year = date.getFullYear();
-        let month = date.getMonth() + 1;
-        let hour = date.getHours();
-        let minute = date.getMinutes();
-        let second = date.getSeconds();
+         const date = new Date();
+         const day = date.getDate();
+         const year = date.getFullYear();
+         const month = date.getMonth() + 1;
+         const hour = date.getHours();
+         const minute = date.getMinutes();
+         const second = date.getSeconds();
 
-        const endTime = new Date(`${year}-${month}-${day} ${hour +2}:${minute}:${second +1}`).getTime();
-        console.log(`${year}-${month}-${day} ${hour +2}:${minute}:${second +1}`);
+         const endTime = new Date(`${year}-${month}-${day} ${hour +2}:${minute}:${second +1}`).getTime();
 
-        return endTime
 
-    }
+         return endTime
 
-    getNowTime() {
-        return new Date().getTime();
-    } // dac do do maina ? 
+     }
+
+     getNowTime() {
+         return new Date().getTime();
+     } // to musi polecieć do klasy time */
 
 
 
