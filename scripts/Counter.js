@@ -34,12 +34,13 @@ class Counter {
     getDifferenceBetweenDates(nowTime, endTime) {
 
 
-        this.hours = Math.floor((endTime / (1000 * 60 * 60) - nowTime / (1000 * 60 * 60)) % 24) /* + (2 * 60 * 60 * 1000); */
+        this.hours = Math.floor((endTime / (1000 * 60 * 60) - nowTime / (1000 * 60 * 60)) % 24)
 
         // zmienić nazwy zmiennych na np. secondsToEnd
         this.minutes = Math.floor((endTime / (1000 * 60) - nowTime / (1000 * 60)) % 60);
         this.seconds = Math.floor((endTime / 1000 - nowTime / 1000) % 60);
 
+        this.hours <= 0 ? this.hours = this.hours + 1 : this.hours
         console.log(this.hours);
 
 
@@ -57,11 +58,13 @@ class Counter {
 
         this.hours <= 9 ? this.hoursSpan.textContent = `0${this.hours}` : this.hoursSpan.textContent = this.hours;
 
-        // jest problem na przełomie dnia 
-        console.log(this.hours, this.minutes, this.seconds);
-        /* console.log(this.hours == -1 ? this.hours = 0 : this.hours, this.minutes, this.seconds); */
+        this.hours <= 0 ? this.hoursSpan.textContent = this.hours : this.hoursSpan.textContent = this.hours;
 
-        // trzeba do bardziej zoptymalizować stworzyć może jakąś metodę co robi to wszystko na raz żeby kodu nie kopiować i zaobaczyć czy wtedy będzie bardziej optymalnie
+        this.minutes <= 0 ? this.minutesSpan.textContent = this.minutes : this.minutesSpan.textContent = this.minutes;
+
+        this.seconds <= 0 ? this.secondsSpan.textContent = this.seconds : this.secondsSpan.textContent = this.seconds;
+        //czytelniej to tutaj bedzie pogrupować w  tradycyjnych instrukcjach warunkowych
+
 
     }
 
