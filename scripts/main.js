@@ -6,7 +6,7 @@ const feed = () => {
     // createAndAddElement() w niej animation animation;
     // 
 
-    counterx.render();
+    counterx.init();
 
 }
 
