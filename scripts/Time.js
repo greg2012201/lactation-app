@@ -14,14 +14,14 @@ class Time {
 
         const day = date.getDate();
         const year = date.getFullYear();
-        const month = date.getMonth() + 1; // nie wiem czy z month nie będzie tego samego problemu co niegdyś z godziną
+        const month = date.getMonth() + 1; // nie wiem czy z month nie będzie tego samego problemu co niegdyś z godziną może można to załatwić warunkiem który mówi że jeśli miesiąc jest 13 to ustawia się go na 1 + 1 tylko czy wetedy nam rok przeskoczy ? 
         const hour = date.getHours();
         const minute = date.getMinutes();
         const second = date.getSeconds();
         console.log(date.getHours());
-        const endTime = new Date('2020-10-07 22:33').getTime(); /* new Date(`${year}-${month}-${day} ${hour}:${minute}:${second +1}`).getTime(); */
+        const endTime = new Date(`${year}-${month}-${day} ${hour}:${minute}:${second +1}`).getTime();
 
-        console.log(`${year}-${month}-${day} ${hour}:${minute}:${second +1}`);
+
         return endTime
 
     }
