@@ -40,7 +40,7 @@ class Counter {
         this.minutes = Math.floor((endTime / (1000 * 60) - nowTime / (1000 * 60)) % 60);
         this.seconds = Math.floor((endTime / 1000 - nowTime / 1000) % 60);
 
-        this.hours <= 0 ? this.hours = this.hours + 1 : this.hours
+        this.hours <= -1 ? this.hours = this.hours + 1 : this.hours;
 
 
 
@@ -58,11 +58,11 @@ class Counter {
 
         this.hours <= 9 ? this.hoursSpan.textContent = `0${this.hours}` : this.hoursSpan.textContent = this.hours;
 
-        this.hours <= 0 ? this.hoursSpan.textContent = this.hours : this.hoursSpan.textContent = this.hours;
+        this.hours <= -1 ? this.hoursSpan.textContent = this.hours : false
 
-        this.minutes <= 0 ? this.minutesSpan.textContent = this.minutes : this.minutesSpan.textContent = this.minutes;
+        this.minutes <= -1 ? this.minutesSpan.textContent = this.minutes : false
 
-        this.seconds <= 0 ? this.secondsSpan.textContent = this.seconds : this.secondsSpan.textContent = this.seconds;
+        this.seconds <= -1 ? this.secondsSpan.textContent = this.seconds : false
         //czytelniej to tutaj bedzie pogrupować w  tradycyjnych instrukcjach warunkowych
 
 

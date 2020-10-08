@@ -22,7 +22,8 @@ class Time {
 
         /* console.log(this.endHours()); */
 
-        const endTime = new Date(`${year}-${month}-${day} ${hour}:${minute}:${second +1}`).getTime();
+        /* const endTime = new Date(`${year}-${month}-${day} ${hour}:${minute}:${second +1}`).getTime(); */
+        const endTime = new Date('2020-10-08 16:30').getTime();
 
 
 
@@ -55,6 +56,11 @@ class Time {
         const year = date.getFullYear();
         const month = date.getMonth() + 1;
         return `${year}-${month}-${day} `
+    }
+
+    getNowHours() {
+
+        // trzeba to zrobić żeby dawało godzinę aktualną dobrze przeliczoną 
     }
 
 
