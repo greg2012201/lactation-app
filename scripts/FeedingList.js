@@ -10,7 +10,7 @@ class FeedingList {
 
     addLi() {
         const li = document.createElement('li');
-        li.textContent = this.endHours();
+        li.textContent = this.endTime();
         this.ul.appendChild(li);
         console.log(li);
 

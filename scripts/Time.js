@@ -21,7 +21,7 @@ class Time {
 
 
         /* console.log(this.endHours()); */
-        console.log(this);
+
         const endTime = new Date(`${year}-${month}-${day} ${hour}:${minute}:${second +1}`).getTime();
 
 
