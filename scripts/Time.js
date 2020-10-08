@@ -22,8 +22,8 @@ class Time {
 
         /* console.log(this.endHours()); */
 
-        /* const endTime = new Date(`${year}-${month}-${day} ${hour}:${minute}:${second +1}`).getTime(); */
-        const endTime = new Date('2020-10-08 16:30').getTime();
+        const endTime = new Date(`${year}-${month}-${day} ${hour}:${minute}:${second +1}`).getTime();
+        /* const endTime = new Date('2020-10-08 16:30').getTime(); */
 
 
 
