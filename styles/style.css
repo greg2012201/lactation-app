@@ -61,6 +61,7 @@ ul {
     margin: 5vh auto;
     text-align: left;
     color: #E6420E;
+    list-style: none;
 
 
 
@@ -73,9 +74,10 @@ li:nth-child(even) {
 
 li {
     font-family: 'Saira Condensed', sans-serif;
-    font-size: 0;
+    font-size: 1.6em;
     transition: .1s;
-    opacity: 0;
+    text-align: center;
+    /*  opacity: 0; */
     /* potrzebujemy tutaj koniecznie animacji  w tym celu trzeba podziałać z transition*/
 }
 

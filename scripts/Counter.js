@@ -41,7 +41,7 @@ class Counter {
         this.seconds = Math.floor((endTime / 1000 - nowTime / 1000) % 60);
 
         this.hours <= 0 ? this.hours = this.hours + 1 : this.hours
-        console.log(this.hours);
+
 
 
     }
@@ -71,8 +71,8 @@ class Counter {
     stopAndReset() {
 
         clearInterval(this.indexInterval);
-        this.seconds = 0;
-        this.minutes = 0;
+        this.seconds = '00';
+        this.minutes = '00';
         this.hours = 2;
         this.print();
     }
