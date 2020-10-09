@@ -71,8 +71,8 @@ class Counter {
     stopAndReset() {
 
         clearInterval(this.indexInterval);
-        this.seconds = '00';
-        this.minutes = '00';
+        this.seconds = 0;
+        this.minutes = 0;
         this.hours = 2;
         this.print();
     }

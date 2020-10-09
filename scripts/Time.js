@@ -21,7 +21,7 @@ class Time {
 
 
         /* console.log(this.endHours()); */
-
+        console.log(this);
         const endTime = new Date(`${year}-${month}-${day} ${hour}:${minute}:${second +1}`).getTime();
         /* const endTime = new Date('2020-10-08 16:30').getTime(); */
 
@@ -31,7 +31,7 @@ class Time {
         return endTime
 
     }
-    getEndHours() {
+    getEndHours() { // metody wewnetrzne dla tego obiektu tylko 
 
 
 
@@ -43,10 +43,10 @@ class Time {
 
 
         const date = new Date();
-        date.addHours(2);
+        /* date.addHours(2); */
         const hour = date.getHours();
         const minute = date.getMinutes();
-        const second = date.getSeconds();
+        const second = date.getSeconds();;
         return `${hour}:${minute}:${second +1}`
 
     }

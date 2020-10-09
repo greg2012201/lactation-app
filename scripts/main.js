@@ -1,16 +1,16 @@
 const time = new Time();
 const counter = new Counter(time.getNowTime, time.getEndTime);
-const feedingList = new FeedingList(time.getNowTime, time.getEndHours);
+const feedingList = new FeedingList(time.getNowTime, time.getEndHours); // tu argumentów nie bedzie wszystko ma byc w funkcji feed rozpisane 
 
 // trzeba odzzielić klasy od siebie żeby o sobie nie wiedziały bo robią się przez to problemy
 
 
 const feed = () => {
-
+    // tu napisac wydarzenia kazdego obiektu 
     // createAndAddElement() w niej animation animation;
     // 
 
-    counter.init(); // dodać tutaj nazwę metody jako 'start'?
+    counter.init(); // dac time do main js albo przebudowac kluczowe zdazenia w ibiekcie i wykonac je w main.js 
     feedingList.addLi();
 
 }
