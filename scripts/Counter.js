@@ -1,9 +1,10 @@
 class Counter {
 
-    constructor(getNowTime, getEndTime) {
+    constructor( /* getNowTime, */ /* getEndTime */ ) {
 
-        this.getEndTime = getEndTime;
-        this.getNowTime = getNowTime;
+        /* this.getEndTime = getEndTime; */
+        /* this.getNowTime = getNowTime; */
+        this.time = new Time(); // zastanowić się czy tutaj to zastosować
         this.secondsSpan = document.querySelector('.seconds');
         this.minutesSpan = document.querySelector('.minutes');
         this.hoursSpan = document.querySelector('.hours');
@@ -12,18 +13,19 @@ class Counter {
 
     init() {
 
-        this.countingDown(this.getEndTime());
+        this.countingDown(this.time.getNowTime, this.time.getEndTime());
         // tutaj normalnie dopalić nowy licznik 
 
     }
 
-    countingDown(endTime) {
+    countingDown(nowTime, endTime) {
 
         const time = 1000;
         if (this.indexInterval) this.stopAndReset();
         this.indexInterval = setInterval(() => {
-            this.getDifferenceBetweenDates(this.getNowTime(), endTime);
+            this.getDifferenceBetweenDates(nowTime(), endTime);
             this.print();
+
 
 
         }, time);

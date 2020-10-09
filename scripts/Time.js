@@ -66,6 +66,7 @@ class Time {
 
 
     getNowTime() {
+
         return new Date().getTime();
     } // to musi polecieć do klasy time
 

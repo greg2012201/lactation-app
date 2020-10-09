@@ -1,6 +1,5 @@
-const time = new Time();
-const counter = new Counter(time.getNowTime, time.getEndTime);
-const feedingList = new FeedingList(time.getNowTime, time.getEndHours); // tu argumentów nie bedzie wszystko ma byc w funkcji feed rozpisane 
+const counter = new Counter();
+const feedingList = new FeedingList(); // tu argumentów nie bedzie wszystko ma byc w funkcji feed rozpisane 
 
 // trzeba odzzielić klasy od siebie żeby o sobie nie wiedziały bo robią się przez to problemy
 
