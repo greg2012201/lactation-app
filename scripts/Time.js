@@ -43,7 +43,7 @@ class Time {
 
 
         const date = new Date();
-        /* date.addHours(2); */
+        date.addHours(2);
         const hour = date.getHours();
         const minute = date.getMinutes();
         const second = date.getSeconds();;
