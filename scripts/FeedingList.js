@@ -11,7 +11,7 @@ class FeedingList {
 
     addLi() {
         const li = document.createElement('li');
-        li.textContent = this.time.getNowTime(); //tu trzeba to zrobić inną metodą z tego
+        li.textContent = this.time.getLocalTime(); //tu trzeba to zrobić inną metodą z tego
         this.ul.appendChild(li);
         console.log(li);
 

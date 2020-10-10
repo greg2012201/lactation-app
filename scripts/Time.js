@@ -1,4 +1,4 @@
-class Time {
+class Time { // to wyleci najprawdopodobniej do countera bo już jest to martwy punkt 
 
 
     getEndTime() {
@@ -27,28 +27,28 @@ class Time {
         const endTime = new Date(date.toLocaleString()).getTime();
 
 
-        console.log(date.toLocaleString());
 
+        this.getLocalTime();
         return endTime
 
     }
-    getEndHours() { // metody wewnetrzne dla tego obiektu tylko 
+    getLocalTime() { // metody wewnetrzne dla tego obiektu tylko 
 
 
+        return new Date().toLocaleTimeString()
+
+        /*  Date.prototype.addHours = function (h) {
+             this.setTime(this.getTime() + (h * 60 * 60 * 1000));
+             return this;
+         } // trzeba wykminić to w innej metodzie
 
 
-        Date.prototype.addHours = function (h) {
-            this.setTime(this.getTime() + (h * 60 * 60 * 1000));
-            return this;
-        } // trzeba wykminić to w innej metodzie
-
-
-        const date = new Date();
-        date.addHours(2);
-        const hour = date.getHours();
-        const minute = date.getMinutes();
-        const second = date.getSeconds();;
-        return `${hour}:${minute}:${second +1}`
+         const date = new Date();
+         date.addHours(2);
+         const hour = date.getHours();
+         const minute = date.getMinutes();
+         const second = date.getSeconds();;
+         return `${hour}:${minute}:${second +1}` */
 
     }
     getEndaDate() {
@@ -59,10 +59,7 @@ class Time {
         return `${year}-${month}-${day} `
     }
 
-    getNowHours() {
 
-        // trzeba to zrobić żeby dawało godzinę aktualną dobrze przeliczoną 
-    }
     getActualTimeInMilliseconds() {
 
         return new Date().getTime();
