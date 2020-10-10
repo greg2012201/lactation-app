@@ -27,8 +27,6 @@ class Time { // to wyleci najprawdopodobniej do countera bo już jest to martwy 
         const endTime = new Date(date.toLocaleString()).getTime();
 
 
-
-        this.getLocalTime();
         return endTime
 
     }

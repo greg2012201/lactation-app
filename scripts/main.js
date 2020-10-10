@@ -1,3 +1,4 @@
+const animations = new Animations();
 const counter = new Counter();
 const feedingList = new FeedingList(); // tu argumentów nie bedzie wszystko ma byc w funkcji feed rozpisane 
 
@@ -11,6 +12,8 @@ const feed = () => {
 
     counter.init(); // dac time do main js albo przebudowac kluczowe zdazenia w ibiekcie i wykonac je w main.js 
     feedingList.addLi();
+
+    new Animations().init();
 
 }
 document.querySelector('.feed-btn').addEventListener('click', feed);
