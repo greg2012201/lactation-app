@@ -59,10 +59,10 @@ class Counter {
         this.seconds <= -1 ? this.secondsSpan.textContent = this.seconds : false
         //czytelniej to tutaj bedzie pogrupować w  tradycyjnych instrukcjach warunkowych
 
-        this.addZero([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan])
+        this.zerosDisplay([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan])
 
     }
-    addZero(timeUnits, renderAreas) {
+    zerosDisplay(timeUnits, renderAreas) {
 
 
 
@@ -72,10 +72,6 @@ class Counter {
 
             unit <= 9 ? area.textContent = `0${unit}` : area.textContent = unit
         }
-
-
-
-
     }
 
     stopAndReset() {
