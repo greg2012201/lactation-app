@@ -1,7 +1,7 @@
 class Time {
 
 
-    getEndTime(endHours, endDate) {
+    getEndTime() {
 
         Date.prototype.addHours = function (h) {
             this.setTime(this.getTime() + (h * 60 * 60 * 1000));
@@ -22,7 +22,7 @@ class Time {
 
         /* console.log(this.endHours()); */
         console.log(this);
-        const endTime = new Date(`${year}-${month}-${day} ${hour}:${minute}:${second +1}`).getTime();
+        const endTime = new Date(`${year}-${month}-${day} ${hour}:${minute}:${second +1}`).getTime(); // uwaga tu się trzeba zastanowić czy nie wtłoczyć Data().tolocaleString
         /* const endTime = new Date('2020-10-08 16:30').getTime(); */
 
 
@@ -65,7 +65,7 @@ class Time {
 
 
 
-    getNowTime() {
+    getActualTimeinMilliseconds() {
 
         return new Date().getTime();
     } // to musi polecieć do klasy time

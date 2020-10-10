@@ -1,34 +1,31 @@
 class Counter {
 
-    constructor( /* getNowTime, */ /* getEndTime */ ) {
+    constructor() {
 
-        /* this.getEndTime = getEndTime; */
-        /* this.getNowTime = getNowTime; */
-        this.time = new Time(); // zastanowić się czy tutaj to zastosować
-        this.secondsSpan = document.querySelector('.seconds');
-        this.minutesSpan = document.querySelector('.minutes');
-        this.hoursSpan = document.querySelector('.hours');
+        this.time = new Time(); // zastanowić się czy tutaj to zastosować, być może zamiast tego lepsze będzie dziedziczenie ? 
+
 
     }
 
     init() {
 
-        this.countingDown(this.time.getNowTime, this.time.getEndTime());
+        this.countingDown(this.time.getActualTimeinMilliseconds, this.time.getEndTime());
         // tutaj normalnie dopalić nowy licznik 
 
     }
 
-    countingDown(nowTime, endTime) {
+    countingDown(ActualTimeinMilliseconds, endTime) {
 
-        const time = 1000;
-        if (this.indexInterval) this.stopAndReset();
+
+        this.stopAndReset();
+
         this.indexInterval = setInterval(() => {
-            this.getDifferenceBetweenDates(nowTime(), endTime);
+            this.getDifferenceBetweenDates(ActualTimeinMilliseconds(), endTime);
             this.print();
 
 
 
-        }, time);
+        }, 1000);
 
 
 
@@ -54,11 +51,6 @@ class Counter {
         this.minutesSpan = document.querySelector('.minutes');
         this.hoursSpan = document.querySelector('.hours');
 
-        this.seconds <= 9 ? this.secondsSpan.textContent = `0${this.seconds}` : this.secondsSpan.textContent = this.seconds;
-
-        this.minutes <= 9 ? this.minutesSpan.textContent = `0${this.minutes}` : this.minutesSpan.textContent = this.minutes;
-
-        this.hours <= 9 ? this.hoursSpan.textContent = `0${this.hours}` : this.hoursSpan.textContent = this.hours;
 
         this.hours <= -1 ? this.hoursSpan.textContent = this.hours : false
 
@@ -66,6 +58,22 @@ class Counter {
 
         this.seconds <= -1 ? this.secondsSpan.textContent = this.seconds : false
         //czytelniej to tutaj bedzie pogrupować w  tradycyjnych instrukcjach warunkowych
+
+        this.addZero([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan])
+
+    }
+    addZero(timeUnits, renderAreas) {
+
+
+
+        for (let i = 0; i < renderAreas.length; i++) {
+            let area = renderAreas[i];
+            let unit = timeUnits[i];
+
+            unit <= 9 ? area.textContent = `0${unit}` : area.textContent = unit
+        }
+
+
 
 
     }
@@ -77,6 +85,7 @@ class Counter {
         this.minutes = 0;
         this.hours = 2;
         this.print();
+        // uwaga tą funkcję będzie trzeba prawdopodobine zrobić w main.js żeby była uniwersalna??
     }
 
 
