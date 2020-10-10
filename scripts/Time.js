@@ -20,8 +20,7 @@ class Time {
         const second = date.getSeconds();
 
 
-        /* console.log(this.endHours()); */
-        console.log(this);
+
         const endTime = new Date(`${year}-${month}-${day} ${hour}:${minute}:${second +1}`).getTime(); // uwaga tu się trzeba zastanowić czy nie wtłoczyć Data().tolocaleString
         /* const endTime = new Date('2020-10-08 16:30').getTime(); */
 
@@ -62,15 +61,8 @@ class Time {
 
         // trzeba to zrobić żeby dawało godzinę aktualną dobrze przeliczoną 
     }
-
-
-
-    getActualTimeinMilliseconds() {
+    getActualTimeInMilliseconds() {
 
         return new Date().getTime();
     } // to musi polecieć do klasy time
-
-
-
-
 }

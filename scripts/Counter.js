@@ -9,18 +9,18 @@ class Counter {
 
     init() {
 
-        this.countingDown(this.time.getActualTimeinMilliseconds, this.time.getEndTime());
+        this.countingDown(this.time.getActualTimeInMilliseconds, this.time.getEndTime());
         // tutaj normalnie dopalić nowy licznik 
 
     }
 
-    countingDown(ActualTimeinMilliseconds, endTime) {
+    countingDown(ActualTimeInMilliseconds, endTime) {
 
 
         this.stopAndReset();
 
         this.indexInterval = setInterval(() => {
-            this.getDifferenceBetweenDates(ActualTimeinMilliseconds(), endTime);
+            this.getDifferenceBetweenDates(ActualTimeInMilliseconds(), endTime);
             this.print();
 
 
@@ -57,12 +57,13 @@ class Counter {
         this.minutes <= -1 ? this.minutesSpan.textContent = this.minutes : false
 
         this.seconds <= -1 ? this.secondsSpan.textContent = this.seconds : false
-        //czytelniej to tutaj bedzie pogrupować w  tradycyjnych instrukcjach warunkowych
 
-        this.zerosDisplay([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan])
+
+        this.zerosAndNegativeNumbersDisplay([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]);
+
 
     }
-    zerosDisplay(timeUnits, renderAreas) {
+    zerosAndNegativeNumbersDisplay(timeUnits, renderAreas) {
 
 
 
@@ -70,7 +71,9 @@ class Counter {
             let area = renderAreas[i];
             let unit = timeUnits[i];
 
-            unit <= 9 ? area.textContent = `0${unit}` : area.textContent = unit
+            unit <= 9 ? area.textContent = `0${unit}` : area.textContent = unit;
+
+            unit <= -1 ? area.textContent = unit : false
         }
     }
 
