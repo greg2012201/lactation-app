@@ -3,25 +3,26 @@ class Counter {
     constructor() {
 
         this.time = new Time(); // zastanowić się czy tutaj to zastosować, być może zamiast tego lepsze będzie dziedziczenie ? 
-
+        this.nextFeeding = document.querySelector('.next-feeding');
 
     }
 
     init() {
 
-        this.countingDown(this.time.getActualTimeInMilliseconds, this.time.getEndTime());
+        this.countingDown(this.time.getActualTimeInMilliseconds, this.time.getEndTimeInMilliseconds());
         // tutaj normalnie dopalić nowy licznik 
 
     }
 
-    countingDown(ActualTimeInMilliseconds, endTime) {
+    countingDown(ActualTimeInMilliseconds, endTimeInMilliseconds) {
 
 
         this.stopAndReset();
 
         this.indexInterval = setInterval(() => {
-            this.getDifferenceBetweenDates(ActualTimeInMilliseconds(), endTime);
+            this.getDifferenceBetweenDates(ActualTimeInMilliseconds(), endTimeInMilliseconds);
             this.print();
+
 
 
 
@@ -34,7 +35,7 @@ class Counter {
 
 
         this.hours = Math.floor((endTime / (1000 * 60 * 60) - nowTime / (1000 * 60 * 60)) % 24)
-
+        console.log(this.hours);
         // zmienić nazwy zmiennych na np. secondsToEnd
         this.minutes = Math.floor((endTime / (1000 * 60) - nowTime / (1000 * 60)) % 60);
         this.seconds = Math.floor((endTime / 1000 - nowTime / 1000) % 60);
@@ -51,12 +52,7 @@ class Counter {
         this.minutesSpan = document.querySelector('.minutes');
         this.hoursSpan = document.querySelector('.hours');
 
-
-        this.hours <= -1 ? this.hoursSpan.textContent = this.hours : false
-
-        this.minutes <= -1 ? this.minutesSpan.textContent = this.minutes : false
-
-        this.seconds <= -1 ? this.secondsSpan.textContent = this.seconds : false
+        console.log(this.hours, this.minutes, this.seconds);
 
 
         this.zerosAndNegativeNumbersDisplay([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]);
@@ -75,6 +71,11 @@ class Counter {
 
             unit <= -1 ? area.textContent = unit : false
         }
+    }
+
+    displayNextFeedingTime() {
+        /*  console.log(this.time.getDate().addHours(2, 1)); */
+        this.nextFeeding.textContent = this.time.getLocalTime(3); // tutaj jest jescze mały problem z tym 
     }
 
     stopAndReset() {

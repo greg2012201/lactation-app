@@ -11,12 +11,15 @@ const feed = () => {
     // 
 
     counter.init(); // dac time do main js albo przebudowac kluczowe zdazenia w ibiekcie i wykonac je w main.js 
+    counter.displayNextFeedingTime();
     feedingList.addLi();
+
 
     new Animations().init();
 
 }
 document.querySelector('.feed-btn').addEventListener('click', feed);
+
 
 const reset = () => {
 

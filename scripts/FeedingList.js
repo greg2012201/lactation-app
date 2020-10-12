@@ -4,6 +4,8 @@ class FeedingList {
 
         this.time = new Time();
         this.ul = document.querySelector('ul');
+
+        /* this.date = new Date(); */
         /*   this.nowTime = nowTime;
           this.endTime = endTime; */
 
@@ -17,6 +19,7 @@ class FeedingList {
 
 
     }
+
 
 
 }
