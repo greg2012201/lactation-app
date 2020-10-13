@@ -20,6 +20,11 @@ class FeedingList {
 
     }
 
+    clearList() {
+
+        // tutaj kod uzuwający wszystko z listy
+    }
+
 
 
 }

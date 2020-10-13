@@ -24,5 +24,6 @@ document.querySelector('.feed-btn').addEventListener('click', feed);
 const reset = () => {
 
     counter.stopAndReset();
+    feedingList.clearList();
 }
 document.querySelector('.reset').addEventListener('click', reset);

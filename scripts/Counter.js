@@ -75,7 +75,7 @@ class Counter {
 
     displayNextFeedingTime() {
         /*  console.log(this.time.getDate().addHours(2, 1)); */
-        this.nextFeeding.textContent = this.time.getLocalTime(3); // tutaj jest jescze mały problem z tym 
+        this.nextFeeding.textContent = this.time.getLocalTime(2); // tutaj jest jescze mały problem z tym 
     }
 
     stopAndReset() {
