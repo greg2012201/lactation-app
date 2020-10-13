@@ -25,5 +25,7 @@ const reset = () => {
 
     counter.stopAndReset();
     feedingList.clearList();
+    animations.deactivateNextFeeding();
+
 }
 document.querySelector('.reset').addEventListener('click', reset);

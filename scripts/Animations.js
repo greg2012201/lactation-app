@@ -23,6 +23,10 @@ class Animations {
     activateNextFeeding() {
         this.nextFeeding.classList.add('active');
     }
+    deactivateNextFeeding() {
+
+        this.nextFeeding.classList.remove('active');
+    }
     animationOfAppearanceOfListItems() {
 
         document.querySelectorAll('li').forEach(li => {
@@ -31,6 +35,8 @@ class Animations {
 
 
     }
+
+
 
 
 }

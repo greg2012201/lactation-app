@@ -2,7 +2,7 @@ class Counter {
 
     constructor() {
 
-        this.time = new Time(); // zastanowić się czy tutaj to zastosować, być może zamiast tego lepsze będzie dziedziczenie ? 
+        this.time = new Time();
         this.nextFeeding = document.querySelector('.next-feeding');
 
     }
@@ -10,7 +10,7 @@ class Counter {
     init() {
 
         this.countingDown(this.time.getActualTimeInMilliseconds, this.time.getEndTimeInMilliseconds());
-        // tutaj normalnie dopalić nowy licznik 
+
 
     }
 
@@ -23,13 +23,7 @@ class Counter {
             this.getDifferenceBetweenDates(ActualTimeInMilliseconds(), endTimeInMilliseconds);
             this.print();
 
-
-
-
         }, 1000);
-
-
-
     }
     getDifferenceBetweenDates(nowTime, endTime) {
 
@@ -53,8 +47,6 @@ class Counter {
         this.hoursSpan = document.querySelector('.hours');
 
         console.log(this.hours, this.minutes, this.seconds);
-
-
         this.zerosAndNegativeNumbersDisplay([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]);
 
 
@@ -70,12 +62,12 @@ class Counter {
             unit <= 9 ? area.textContent = `0${unit}` : area.textContent = unit;
 
             unit <= -1 ? area.textContent = unit : false
-        }
+        } // try to forEach method 
     }
 
     displayNextFeedingTime() {
-        /*  console.log(this.time.getDate().addHours(2, 1)); */
-        this.nextFeeding.textContent = this.time.getLocalTime(2); // tutaj jest jescze mały problem z tym 
+
+        this.nextFeeding.textContent = this.time.getLocalTime(2);
     }
 
     stopAndReset() {
