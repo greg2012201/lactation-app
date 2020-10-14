@@ -1,16 +1,6 @@
-/* setTimeout(() => {
-        li.classList.add('active');
-    },
-    10);  */
-
 class Animations {
     constructor() {
         this.nextFeeding = document.querySelector('.next-feeding');
-        /* 
-                document.querySelector('ul').addEventListener('click', function (e) {
-                    console.log(e.target);
-                    if (e.target && e.target.nodeName == 'BUTTON') addLi();
-                }, false); */ // użyć tutaj event delegation ?? 
 
     }
 
