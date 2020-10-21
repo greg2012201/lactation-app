@@ -62,7 +62,15 @@ class Counter {
             unit <= 9 ? area.textContent = `0${unit}` : area.textContent = unit;
 
             unit <= -1 ? area.textContent = unit : false
+            console.log(timeUnits[1]);
+
         } // try to forEach method 
+        if (timeUnits[1] === -60) {
+            renderAreas[1].textContent = '00'
+            renderAreas[1].textContent == '00' ?
+                renderAreas[0].textContent = timeUnits[0] - 1 : false
+            // jest błąd jeszcze z 60s można to jeszcze sprawdzić i naprawić poprzez skonstruowanie kolejnego warunku
+        }
     }
 
     displayNextFeedingTime() {

@@ -26,6 +26,8 @@ class Time {
 
         const endTime = new Date(`${year}-${month}-${day} ${hours}:${minutes}:${seconds}`).getTime();
 
+
+
         return endTime;
 
     }
