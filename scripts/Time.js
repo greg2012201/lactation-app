@@ -24,7 +24,7 @@ class Time {
         const minutes = date.getMinutes();
         const seconds = date.getSeconds();
 
-        const endTime = new Date(`${year}-${month}-${day} ${hours}:${minutes}:${seconds}`).getTime();
+        const endTime = new Date(`${year}-${month}-${22} ${23}:${56}:${seconds}`).getTime();
 
 
 

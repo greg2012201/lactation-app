@@ -65,6 +65,13 @@ class Counter {
 
         });
 
+
+        this.negativeNumbersBehavior(timeUnits, renderAreas)
+
+    }
+
+    negativeNumbersBehavior(timeUnits, renderAreas) {
+
         for (let i = 1; i < renderAreas.length - 1; i++) {
             const hoursArea = renderAreas[0]
             const minutesArea = renderAreas[1];
@@ -73,17 +80,16 @@ class Counter {
             const minutes = timeUnits[1];
             const seconds = timeUnits[2];
 
-
+            console.log(secondsArea);
             if (minutes === -60) {
                 minutesArea.textContent = '00';
                 minutesArea.textContent == '00' ?
                     hoursArea.textContent = hours - 1 : false
-            } else if (seconds === -60) secondsArea.textContent = '00';
-            else if (minutesArea.textContent == '00' && minutes === -60) hoursArea.textContent = hours - 1
 
+            }
+            if (seconds === -60) secondsArea.textContent = '00';
         }
         // jeszcze trzeba sprawdzić jak się zachowują godziny przy dojściu do 24
-
 
     }
 
