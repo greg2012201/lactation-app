@@ -64,13 +64,29 @@ class Counter {
             unit <= -1 ? area.textContent = unit : false
             console.log(timeUnits[1]);
 
-        } // try to forEach method 
-        if (timeUnits[1] === -60) {
-            renderAreas[1].textContent = '00'
-            renderAreas[1].textContent == '00' ?
-                renderAreas[0].textContent = timeUnits[0] - 1 : false
-            // jest błąd jeszcze z 60s można to jeszcze sprawdzić i naprawić poprzez skonstruowanie kolejnego warunku
+        } // try to forEach method
+
+
+        for (let i = 1; i < renderAreas.length - 1; i++) {
+            const hoursArea = renderAreas[0]
+            const minutesArea = renderAreas[1];
+            const secondsArea = renderAreas[2];
+            const hours = timeUnits[0];
+            const minutes = timeUnits[1];
+            const seconds = timeUnits[2];
+
+
+            if (minutes === -60) {
+                minutesArea.textContent = '00';
+                minutesArea.textContent == '00' ?
+                    hoursArea.textContent = hours - 1 : false
+            } else if (seconds === -60) secondsArea.textContent = '00';
+            else if (minutesArea.textContent == '00' && minutes === -60) hoursArea.textContent = hours - 1
+
         }
+        // jeszcze trzeba sprawdzić jak się zachowują godziny przy dojściu do 24
+
+
     }
 
     displayNextFeedingTime() {
