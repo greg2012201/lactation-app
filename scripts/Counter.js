@@ -80,14 +80,16 @@ class Counter {
             const minutes = timeUnits[1];
             const seconds = timeUnits[2];
 
-            console.log(secondsArea);
+
             if (minutes === -60) {
                 minutesArea.textContent = '00';
                 minutesArea.textContent == '00' ?
-                    hoursArea.textContent = hours - 1 : false
+                    hoursArea.textContent = hours - 1 : Null // Null ?? 
 
             }
             if (seconds === -60) secondsArea.textContent = '00';
+
+            //zrobić ternery operator
         }
         // jeszcze trzeba sprawdzić jak się zachowują godziny przy dojściu do 24
 
