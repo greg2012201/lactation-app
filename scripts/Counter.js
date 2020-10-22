@@ -55,17 +55,15 @@ class Counter {
 
 
 
-        for (let i = 0; i < renderAreas.length; i++) {
-            let area = renderAreas[i];
-            let unit = timeUnits[i];
+        renderAreas.forEach((area, i) => {
+
+            const unit = timeUnits[i];
 
             unit <= 9 ? area.textContent = `0${unit}` : area.textContent = unit;
 
             unit <= -1 ? area.textContent = unit : false
-            console.log(timeUnits[1]);
 
-        } // try to forEach method
-
+        });
 
         for (let i = 1; i < renderAreas.length - 1; i++) {
             const hoursArea = renderAreas[0]
