@@ -20,11 +20,11 @@ class Time {
         const year = date.getFullYear();
         const month = date.getMonth() + 1;
         const day = date.getDate();
-        const hours = date.getHours();
-        const minutes = date.getMinutes();
-        const seconds = date.getSeconds();
+        const hour = date.getHours();
+        const minute = date.getMinutes();
+        const second = date.getSeconds();
 
-        const endTime = new Date(`${year}-${month}-${day} ${hours}:${minutes}:${seconds}`).getTime();
+        const endTime = new Date(`${year}-${month}-${day} ${hour}:${minute}:${second}`).getTime();
 
 
 

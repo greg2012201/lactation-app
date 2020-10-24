@@ -61,7 +61,7 @@ class Counter {
 
             unit <= 9 ? area.textContent = `0${unit}` : area.textContent = unit;
 
-            unit <= -1 ? area.textContent = unit : false
+            /*  unit <= -1 ? area.textContent = unit : false */
 
         });
 
@@ -72,7 +72,7 @@ class Counter {
 
     negativeNumbersBehavior(timeUnits, renderAreas) {
 
-        for (let i = 1; i < renderAreas.length - 1; i++) {
+        for (let i = 0; i < renderAreas.length; i++) {
             const hoursArea = renderAreas[0]
             const minutesArea = renderAreas[1];
             const secondsArea = renderAreas[2];
@@ -80,16 +80,27 @@ class Counter {
             const minutes = timeUnits[1];
             const seconds = timeUnits[2];
 
+            timeUnits[i] <= -1 ? renderAreas[i].textContent = timeUnits[i] : null;
 
             if (minutes === -60) {
                 minutesArea.textContent = '00';
                 minutesArea.textContent == '00' ?
-                    hoursArea.textContent = hours - 1 : Null // Null ?? 
+                    hoursArea.textContent = hours - 1 : null
 
-            }
-            if (seconds === -60) secondsArea.textContent = '00';
 
-            //zrobić ternery operator
+            } else null
+            if (seconds === -60) {
+                secondsArea.textContent = '00';
+
+
+            } else null
+            if (seconds <= -1) {
+
+                minutesArea.textContent = minutes + 1
+
+            } else null
+            minutesArea.textContent == 0 ? minutesArea.textContent = '00' : null;
+
         }
         // jeszcze trzeba sprawdzić jak się zachowują godziny przy dojściu do 24
 
