@@ -14,13 +14,13 @@ class Counter {
 
     }
 
-    countingDown(ActualTimeInMilliseconds, endTimeInMilliseconds) {
+    countingDown(actualTimeInMilliseconds, endTimeInMilliseconds) {
 
 
         this.stopAndReset();
 
         this.indexInterval = setInterval(() => {
-            this.getDifferenceBetweenDates(ActualTimeInMilliseconds(), endTimeInMilliseconds);
+            this.getDifferenceBetweenDates(actualTimeInMilliseconds(), endTimeInMilliseconds);
             this.print();
 
         }, 1000);
@@ -34,7 +34,8 @@ class Counter {
         this.minutes = Math.floor((endTime / (1000 * 60) - nowTime / (1000 * 60)) % 60);
         this.seconds = Math.floor((endTime / 1000 - nowTime / 1000) % 60);
 
-        this.hours <= -1 ? this.hours = this.hours + 1 : this.hours;
+        this.hours <= -1 ? this.hours = this.hours + 1 : this.hours; // zinterpretować to w princie ? 
+
 
 
 
@@ -46,7 +47,7 @@ class Counter {
         this.minutesSpan = document.querySelector('.minutes');
         this.hoursSpan = document.querySelector('.hours');
 
-        console.log(this.hours, this.minutes, this.seconds);
+
         this.zerosAndNegativeNumbersDisplay([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]);
 
 
@@ -61,7 +62,7 @@ class Counter {
 
             unit <= 9 ? area.textContent = `0${unit}` : area.textContent = unit;
 
-            /*  unit <= -1 ? area.textContent = unit : false */
+
 
         });
 
@@ -71,6 +72,8 @@ class Counter {
     }
 
     negativeNumbersBehavior(timeUnits, renderAreas) {
+
+        // tutaj też pasuje zamienić na obiekty
 
         for (let i = 0; i < renderAreas.length; i++) {
             const hoursArea = renderAreas[0]
@@ -85,21 +88,23 @@ class Counter {
             if (minutes === -60) {
                 minutesArea.textContent = '00';
                 minutesArea.textContent == '00' ?
-                    hoursArea.textContent = hours - 1 : null
+                    hoursArea.textContent = hours - 1 : null;
 
 
-            } else null
+            } else null;
             if (seconds === -60) {
                 secondsArea.textContent = '00';
 
 
-            } else null
+            } else null;
             if (seconds <= -1) {
 
                 minutesArea.textContent = minutes + 1
 
-            } else null
+            } else null;
             minutesArea.textContent == 0 ? minutesArea.textContent = '00' : null;
+
+            // sprawdzić warunki czy się nadają minutes i seconds === -60 można ujednolicić ?
 
         }
         // jeszcze trzeba sprawdzić jak się zachowują godziny przy dojściu do 24
@@ -108,7 +113,7 @@ class Counter {
 
     displayNextFeedingTime() {
 
-        this.nextFeeding.textContent = this.time.getLocalTime(2);
+        this.nextFeeding.textContent = `${this.time.getLocalTime(2).hours}:${this.time.getLocalTime().minutes}:${this.time.getLocalTime().seconds}`
     }
 
     stopAndReset() {

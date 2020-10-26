@@ -34,6 +34,7 @@ class Time {
 
 
     getLocalTime(numberOfHoursAdded) {
+
         const date = this.initNewDate();
         if (numberOfHoursAdded) date.addHours(numberOfHoursAdded, 0);
 
@@ -43,10 +44,17 @@ class Time {
 
 
 
-        const hoursToDsplay = this.display(hour);
+        const timeToDisplay = {
+            hours: this.display(hour),
+            minutes: this.display(minute),
+            seconds: this.display(second),
+        }
+        return timeToDisplay;
+
+        /* const hoursToDsplay = this.display(hour);
         const minutesToDsplay = this.display(minute);
         const secondsToDsplay = this.display(second);
-        return `${hoursToDsplay}:${minutesToDsplay}:${secondsToDsplay}`
+        return `${hoursToDsplay}:${minutesToDsplay}:${secondsToDsplay}`; */
 
     }
 
@@ -56,6 +64,7 @@ class Time {
     }
 
     display(unit) {
+        // tutaj umieścić wszystko co potrzeba do warunków jako argumenty zrobić obiekt prymitywny wtedy metoda ta stanie się reużywalna
 
         return unit <= 9 ? `0${unit}` : unit;
     }

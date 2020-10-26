@@ -8,15 +8,12 @@ class Animations {
 
         this.activateNextFeeding();
         this.animationOfAppearanceOfListItems();
-        console.log('wywołanie');
+
     }
     activateNextFeeding() {
         this.nextFeeding.classList.add('active');
     }
-    deactivateNextFeeding() {
 
-        this.nextFeeding.classList.remove('active');
-    }
     animationOfAppearanceOfListItems() {
 
         document.querySelectorAll('li').forEach(li => {
@@ -24,6 +21,10 @@ class Animations {
         });
 
 
+    }
+    deactivateNextFeeding() {
+
+        this.nextFeeding.classList.remove('active');
     }
 
 
