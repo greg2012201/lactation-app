@@ -4,6 +4,9 @@ class Counter {
 
         this.time = new Time();
         this.nextFeeding = document.querySelector('.next-feeding');
+        this.secondsSpan = document.querySelector('.seconds')
+        this.minutesSpan = document.querySelector('.minutes');
+        this.hoursSpan = document.querySelector('.hours');
 
     }
 
@@ -26,7 +29,7 @@ class Counter {
         }, 1000);
     }
     getDifferenceBetweenDates(nowTime, endTime) {
-
+        // end time i now time wyodrębnić tutaj przejmujać metody z Time.js 
 
         this.hours = Math.floor((endTime / (1000 * 60 * 60) - nowTime / (1000 * 60 * 60)) % 24)
         console.log(this.hours);
@@ -43,13 +46,15 @@ class Counter {
 
     print() {
 
-        this.secondsSpan = document.querySelector('.seconds');
-        this.minutesSpan = document.querySelector('.minutes');
-        this.hoursSpan = document.querySelector('.hours');
+
+        this.hoursSpan.textContent = this.time.displayTest([this.hours]);
+        this.minutesSpan.textContent = this.time.displayTest([this.minutes]);
+        this.secondsSpan.textContent = this.time.displayTest([this.seconds]);
 
 
-        this.zerosAndNegativeNumbersDisplay([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]);
 
+        /*  this.zerosAndNegativeNumbersDisplay([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]); */
+        /* this.time.displayTest([this.hours, this.minutes, this.seconds]); */
 
     }
     zerosAndNegativeNumbersDisplay(timeUnits, renderAreas) {
@@ -61,6 +66,7 @@ class Counter {
             const unit = timeUnits[i];
 
             unit <= 9 ? area.textContent = `0${unit}` : area.textContent = unit;
+
 
 
 
