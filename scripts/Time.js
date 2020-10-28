@@ -69,15 +69,37 @@ class Time {
 
         return unit <= 9 ? `0${unit}` : unit;
     }
-    displayTest(timeUnits /* , render = null */ ) {
+    displayTest(timeUnits, renderArea = null) {
         // tutaj umieścić wszystko co potrzeba do warunków jako argumenty zrobić obiekt prymitywny wtedy metoda ta stanie się reużywalna niech ta metoda modyfikuje zawartośći w zmiennych a nie bezpośrednio na stronie, albo pozostać na tablicach bo nie wiadomo czy się to wszytsko bez dublowania kodu zrobi UWAGA MOŻNA JESZCZE STOSOWAĆ PĘTLE PO OBIEKTACH TO WYPRÓBOWAĆ    /* https://kursjs.pl/kurs/obiekty/obiekty.php */
-        let output;
-        timeUnits.forEach((unit) => {
-            unit <= 9 ? unit = `0${unit}` : unit;
-            return output = unit;
-        })
+        timeUnits = this.addZero(timeUnits);
+        console.log(timeUnits);
+        // this.negativeNumbersBehavior();
+        return this.render(renderArea, timeUnits); //chyba że obiekt zwrócić ? 
 
-        return output, this.numberOfNegativeNumbersBehavior();
+
     }
 
+    addZero(units) {
+
+        let dsplUnits;
+        units.forEach((unit) => {
+            unit <= 9 ? unit = `0${unit}` : unit;
+            return dsplUnits = unit;
+        })
+
+        /*  return dsplUnits; */
+        return this.negativeNumbersBehavior(dsplUnits);
+    }
+
+    negativeNumbersBehavior(timeUnits) {
+
+        // kod 
+        return timeUnits
+        // return wynik
+
+    }
+
+    render(renderArea) {
+
+    }
 }

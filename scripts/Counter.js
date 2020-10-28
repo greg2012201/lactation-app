@@ -47,14 +47,15 @@ class Counter {
     print() {
 
 
-        this.hoursSpan.textContent = this.time.displayTest([this.hours]);
+        this.hoursSpan.textContent = this.time.displayTest([this.hours]); //time.getUnitsToDisplay().hours;
         this.minutesSpan.textContent = this.time.displayTest([this.minutes]);
         this.secondsSpan.textContent = this.time.displayTest([this.seconds]);
 
 
-
+        // time.setUnitsForProcessing([this.hours, this.minutes, this.seconds]);
+        // time.getUnitsOutProcessing().hours;
         /*  this.zerosAndNegativeNumbersDisplay([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]); */
-        /* this.time.displayTest([this.hours, this.minutes, this.seconds]); */
+        this.time.displayTest([this.hours, this.minutes, this.seconds]);
 
     }
     zerosAndNegativeNumbersDisplay(timeUnits, renderAreas) {
@@ -80,6 +81,7 @@ class Counter {
     negativeNumbersBehavior(timeUnits, renderAreas) {
 
         // tutaj też pasuje zamienić na obiekty
+        // rodzielić tutuaj printowanie od logiki czasu by pasowało być może juz w Time.js, osobna metoda wpływa na liczby osobna je printuje, przypisuje do textContent
 
         for (let i = 0; i < renderAreas.length; i++) {
             const hoursArea = renderAreas[0]
