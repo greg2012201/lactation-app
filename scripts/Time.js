@@ -23,7 +23,7 @@ class Time {
         const minute = date.getMinutes();
         const second = date.getSeconds();
 
-        const endTime = new Date(`${year}-${month}-${day} ${hour -3}:${minute}:${second}`).getTime();
+        const endTime = new Date(`${year}-${month}-${day} ${hour-2}:${minute}:${second}`).getTime();
 
 
 
@@ -84,7 +84,7 @@ class Time {
 
         let dsplUnits = [];
         units.forEach((unit) => {
-            unit <= 9 && unit > 0 ? unit = `0${unit}` : unit;
+            unit <= 9 && unit >= 0 ? unit = `0${unit}` : unit;
             return dsplUnits.push(unit);
             // musi pushować do innej tablicy
         })
@@ -95,58 +95,32 @@ class Time {
 
     negativeNumbersBehavior(timeUnits) {
 
-        let dsplUnits = []; // pomyśleć o bardziej czytelnym rozwiązaniu tego 
+        let dsplUnits = [];
         let hours = timeUnits[0];
         let minutes = timeUnits[1];
         let seconds = timeUnits[2];
-        // timeUnits[i] <= -1 ? timeUnits[i] = timeUnits[i] : null;
+        /* let dsplUnits = {
+            hours: timeUnits[0],
+            minutes: timeUnits[1],
+            seconds: timeUnits[2],
+        } */
 
 
         if (minutes === -60) {
             minutes = '00';
         } else if (minutes === '00') hours = hours - 1;
 
-        /* minutes === 0 ? minutes = '00' : minutes; */
+
         seconds === -60 ? seconds = '00' : seconds;
-        /*  seconds <= -1 ? minutes += 1 : minutes; */
+        seconds <= -1 ? minutes += 1 : minutes;
+        minutes === 0 ? minutes = '00' : minutes;
 
 
         dsplUnits.push(hours, minutes, seconds)
         console.log(dsplUnits);
 
-        /*     console.log(timeUnits); */
-        /* for (let i = 0; i < timeUnits.length; i++) {
-
-            const hours = timeUnits[0];
-            const minutes = timeUnits[1];
-            const seconds = timeUnits[2];
-
-            timeUnits[i] <= -1 ? renderAreas[i].textContent = timeUnits[i] : null; // ? chyba do rendera
-
-            if (minutes === -60) {
-                minutesArea.textContent = '00';
-                minutesArea.textContent == '00' ?
-                    hoursArea.textContent = hours - 1 : null;
-
-
-            } else null;
-            if (seconds === -60) {
-                secondsArea.textContent = '00';
-
-
-            } else null;
-            if (seconds <= -1) {
-
-                minutesArea.textContent = minutes + 1
-
-            } else null;
-            minutesArea.textContent == 0 ? minutesArea.textContent = '00' : null;
-
-            // sprawdzić warunki czy się nadają minutes i seconds === -60 można ujednolicić ?
-
-        } */
         return dsplUnits
-        // return wynik
+
 
     }
 
