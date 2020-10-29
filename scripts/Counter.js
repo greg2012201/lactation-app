@@ -32,7 +32,7 @@ class Counter {
         // end time i now time wyodrębnić tutaj przejmujać metody z Time.js 
 
         this.hours = Math.floor((endTime / (1000 * 60 * 60) - nowTime / (1000 * 60 * 60)) % 24)
-        console.log(this.hours);
+
         // zmienić nazwy zmiennych na np. secondsToEnd
         this.minutes = Math.floor((endTime / (1000 * 60) - nowTime / (1000 * 60)) % 60);
         this.seconds = Math.floor((endTime / 1000 - nowTime / 1000) % 60);
@@ -47,15 +47,16 @@ class Counter {
     print() {
 
 
-        this.hoursSpan.textContent = this.time.displayTest([this.hours]); //time.getUnitsToDisplay().hours;
+        /* this.hoursSpan.textContent = this.time.displayTest([this.hours]); //time.getUnitsToDisplay().hours;
         this.minutesSpan.textContent = this.time.displayTest([this.minutes]);
-        this.secondsSpan.textContent = this.time.displayTest([this.seconds]);
+        this.secondsSpan.textContent = this.time.displayTest([this.seconds]); */
 
 
         // time.setUnitsForProcessing([this.hours, this.minutes, this.seconds]);
         // time.getUnitsOutProcessing().hours;
         /*  this.zerosAndNegativeNumbersDisplay([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]); */
-        this.time.displayTest([this.hours, this.minutes, this.seconds]);
+        this.time.displayTest([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]);
+        /*   console.log(this.time.displayTest([this.hours, this.minutes, this.seconds])); */
 
     }
     zerosAndNegativeNumbersDisplay(timeUnits, renderAreas) {
