@@ -10,7 +10,7 @@ class FeedingList {
         this.li = document.createElement('li');
         //  const spanHours = document.createElement('span');
 
-        this.li.textContent = `${this.time.getLocalTime().hours}:${this.time.getLocalTime().minutes}:${this.time.getLocalTime().seconds}`; // zastanowić się czy nie zrezygnować z metody getLocalTime ? 
+        /*  this.li.textContent = `${this.time.getLocalTime().hours}:${this.time.getLocalTime().minutes}:${this.time.getLocalTime().seconds}`; */ // zastanowić się czy nie zrezygnować z metody getLocalTime ? 
         this.ul.appendChild(this.li);
 
     }

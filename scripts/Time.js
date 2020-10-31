@@ -32,24 +32,16 @@ class Time {
     }
 
 
-    getLocalTime(numberOfHoursAdded) {
-
+    dsiplayEndTime(renderArea) {
+        console.log(renderArea);
         const date = this.initNewDate();
-        if (numberOfHoursAdded) date.addHours(numberOfHoursAdded, 0);
+        date.addHours(2, 0);
 
-        const hour = date.getHours();
-        const minute = date.getMinutes();
-        const second = date.getSeconds();
 
-        console.log(hour);
 
-        const timeToDisplay = {
-            hours: this.display(hour),
-            minutes: this.display(minute),
-            seconds: this.display(second),
-        }
 
-        return this.displayTest([hour, date.getMinutes(), date.getSeconds()])
+
+        return this.displayTest([date.getHours(), date.getMinutes(), date.getSeconds()], renderArea)
         // return timeToDisplay;
 
         /* const hoursToDsplay = this.display(hour);
@@ -86,7 +78,7 @@ class Time {
         units.forEach((unit) => {
             unit <= 9 && unit >= 0 ? unit = `0${unit}` : unit;
             return dsplUnits.push(unit);
-            // musi pushować do innej tablicy
+
         })
 
         /*  return dsplUnits; */
@@ -94,11 +86,7 @@ class Time {
     }
 
     negativeNumbersBehavior(timeUnits) {
-        /* 
-                let dsplUnits = [];
-                let hours = timeUnits[0];
-                let minutes = timeUnits[1];
-                let seconds = timeUnits[2]; */
+
         let dsplUnits = []
         let hours = timeUnits[0];
         let minutes = timeUnits[1];

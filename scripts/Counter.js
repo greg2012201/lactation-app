@@ -123,7 +123,7 @@ class Counter {
 
     displayNextFeedingTime() {
 
-        this.nextFeeding.textContent = `${this.time.getLocalTime(2).hours}:${this.time.getLocalTime().minutes}:${this.time.getLocalTime().seconds}`
+        this.time.dsiplayEndTime(this.nextFeeding.querySelectorAll('span'));
     }
 
     stopAndReset() {
