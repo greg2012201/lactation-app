@@ -23,7 +23,7 @@ class Time {
         const minute = date.getMinutes();
         const second = date.getSeconds();
 
-        const endTime = new Date(`${year}-${month}-${day} ${hour-2}:${minute}:${second}`).getTime();
+        const endTime = new Date(`${year}-${month}-${day} ${hour}:${minute}:${second}`).getTime();
 
 
 
@@ -41,7 +41,7 @@ class Time {
         const minute = date.getMinutes();
         const second = date.getSeconds();
 
-
+        console.log(hour);
 
         const timeToDisplay = {
             hours: this.display(hour),
@@ -49,7 +49,7 @@ class Time {
             seconds: this.display(second),
         }
 
-        return this.displayTest([date.getHours(), date.getMinutes(), date.getSeconds()])
+        return this.displayTest([hour, date.getMinutes(), date.getSeconds()])
         // return timeToDisplay;
 
         /* const hoursToDsplay = this.display(hour);
@@ -99,24 +99,25 @@ class Time {
                 let hours = timeUnits[0];
                 let minutes = timeUnits[1];
                 let seconds = timeUnits[2]; */
-        let dsplUnits = {
-            hours: timeUnits[0],
-            minutes: timeUnits[1],
-            seconds: timeUnits[2],
-        }
+        let dsplUnits = []
+        let hours = timeUnits[0];
+        let minutes = timeUnits[1];
+        let seconds = timeUnits[2];
 
 
-        if (dsplUnits.minutes === -60) {
-            dsplUnits.minutes = '00';
-        } else if (dsplUnits.minutes === '00') dsplUnits.hours -= 1
+
+        if (minutes === -60) {
+            minutes = '00';
+            hours -= 1
+        } else null;
 
 
-        dsplUnits.seconds === -60 ? dsplUnits.seconds = '00' : dsplUnits.seconds;
-        dsplUnits.seconds <= -1 ? dsplUnits.minutes += 1 : dsplUnits.minutes;
-        dsplUnits.minutes === 0 ? dsplUnits.minutes = '00' : dsplUnits.minutes;
+        seconds === -60 ? seconds = '00' : seconds;
+        seconds <= -1 ? minutes += 1 : minutes;
+        minutes === 0 ? minutes = '00' : minutes;
 
 
-        /*  dsplUnits.push() */
+        dsplUnits.push(hours, minutes, seconds)
         console.log(dsplUnits);
 
         return dsplUnits
@@ -125,7 +126,8 @@ class Time {
     }
 
     render(renderArea, timeUnits) {
-        console.log(renderArea);
+        if (renderArea === null) return
+        else renderArea.forEach((area, i) => area.textContent = timeUnits[i]);
         return timeUnits
 
     }
