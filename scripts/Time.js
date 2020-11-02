@@ -97,12 +97,13 @@ class Time {
         if (minutes === -60) {
             minutes = '00';
             hours -= 1
-        } else null;
+        } /* else { */
 
 
         seconds === -60 ? seconds = '00' : seconds;
         seconds <= -1 ? minutes += 1 : minutes;
         minutes === 0 ? minutes = '00' : minutes;
+        /* } */ // sprawdzić to czy działa
 
 
         dsplUnits.push(hours, minutes, seconds)
