@@ -39,25 +39,14 @@ class Counter {
 
         this.hours <= -1 ? this.hours = this.hours + 1 : this.hours; // zinterpretować to w princie ? 
 
-
-
-
     }
 
     print() {
 
 
-        /* this.hoursSpan.textContent = this.time.displayTest([this.hours]); //time.getUnitsToDisplay().hours;
-        this.minutesSpan.textContent = this.time.displayTest([this.minutes]);
-        this.secondsSpan.textContent = this.time.displayTest([this.seconds]); */
-
-
-        // time.setUnitsForProcessing([this.hours, this.minutes, this.seconds]);
-        // time.getUnitsOutProcessing().hours;
-        /*  this.zerosAndNegativeNumbersDisplay([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]); */
         this.time.displayTest([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]);
 
-        /*   console.log(this.time.displayTest([this.hours, this.minutes, this.seconds])); */
+
 
     }
     zerosAndNegativeNumbersDisplay(timeUnits, renderAreas) {

@@ -25,13 +25,7 @@ class FeedingList {
         const li = document.createElement('li');
 
 
-        const createBefore = (parent, elementAfter) => {
 
-            const span = document.createElement('span');
-            span.textContent = ':'
-            parent.insertBefore(span, elementAfter);
-            return span
-        }
 
 
         for (let i = 0; i < 3; i++) {
@@ -48,6 +42,15 @@ class FeedingList {
                 span.className = 'seconds';
                 createBefore(li, span);
             }
+        }
+
+
+        function createBefore(parent, elementAfter) {
+
+            const span = document.createElement('span');
+            span.textContent = ':'
+            parent.insertBefore(span, elementAfter);
+            return span
         }
 
         return li;
