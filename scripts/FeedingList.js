@@ -8,13 +8,15 @@ class FeedingList {
 
     addLi() {
 
-        let li;
+
 
         /*  this.li.textContent = `${this.time.getLocalTime().hours}:${this.time.getLocalTime().minutes}:${this.time.getLocalTime().seconds}`; */ // zastanowić się czy nie zrezygnować z metody getLocalTime ? 
         /*  this.ul.appendChild(this.li);
          this.li = this.ul.insertBefore(text, this.li) */
 
         this.ul.appendChild(this.createLi())
+        console.log(this.time.getLocalDate().hour);
+        // powinien wejść sam local time teraz jako obiekt zwrócony
 
     }
 
@@ -52,18 +54,6 @@ class FeedingList {
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     clearList() {

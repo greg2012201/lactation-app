@@ -22,6 +22,7 @@ class Time {
         const hour = date.getHours();
         const minute = date.getMinutes();
         const second = date.getSeconds();
+        // będzie tutaj użyta metoda do getLocal date jako obiekt
 
         const endTime = new Date(`${year}-${month}-${day} ${hour}:${minute}:${second}`).getTime();
 
@@ -41,13 +42,25 @@ class Time {
 
 
 
-        return this.displayTest([date.getHours(), date.getMinutes(), date.getSeconds()], renderArea)
+        return this.displayTest([date.getHours(), date.getMinutes(), date.getSeconds()], renderArea) //<-- będzie tutuaj metoda na local time jeszcze osobna, zwraca ona obiekt prosty
         // return timeToDisplay;
 
         /* const hoursToDsplay = this.display(hour);
         const minutesToDsplay = this.display(minute);
         const secondsToDsplay = this.display(second);
         return `${hoursToDsplay}:${minutesToDsplay}:${secondsToDsplay}`; */
+
+    }
+    getLocalDate() {
+        const date = this.initNewDate();
+        return {
+            year: date.getFullYear(),
+            month: date.getMonth() + 1,
+            day: date.getDate(),
+            hour: date.getHours(),
+            minute: date.getMinutes(),
+            second: date.getSeconds(),
+        }
 
     }
 
