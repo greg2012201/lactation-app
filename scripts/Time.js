@@ -33,7 +33,7 @@ class Time {
 
 
     dsiplayEndTime(renderArea) {
-        console.log(renderArea);
+
         const date = this.initNewDate();
         date.addHours(2, 0);
 
@@ -107,7 +107,7 @@ class Time {
 
 
         dsplUnits.push(hours, minutes, seconds)
-        console.log(dsplUnits);
+
 
         return dsplUnits
 

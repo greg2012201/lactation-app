@@ -13,34 +13,52 @@ class FeedingList {
         const text = document.createElement('span');
 
         /*  this.li.textContent = `${this.time.getLocalTime().hours}:${this.time.getLocalTime().minutes}:${this.time.getLocalTime().seconds}`; */ // zastanowić się czy nie zrezygnować z metody getLocalTime ? 
-        this.ul.appendChild(this.li);
-        this.li = this.ul.insertBefore(text, this.li)
-        this.createLi(li)
+        /*  this.ul.appendChild(this.li);
+         this.li = this.ul.insertBefore(text, this.li) */
+        this.createLi(li, this.ul);
 
     }
 
-    createLi(li) {
+    createLi(li, ul) {
 
-        const parent = document.createElement('li');
+        li = document.createElement('li');
+
 
 
         for (let i = 0; i < 3; i++) {
 
 
-            const child = document.createElement('span');
-            if (i == 0) child.className = 'span-hours';
-            else if (i == 1) child.className = 'span-minutes';
-            else child.className = 'span-seconds';
-            parent.appendChild(child);
+            const span = document.createElement('span');
+            if (i == 0) span.className = 'hours';
+            else if (i == 1) span.className = 'minutes';
+            else span.className = 'seconds';
+            li.appendChild(span);
+            console.log(li);
 
 
 
         }
 
-        parent.childNodes.forEach(element => {
+
+        li.childNodes.forEach(element => {
+
+            /* element.className == 'minutes' ? element = li.insertBefore(text, element) : element.className == 'seconds' ? element = li.insertBefore(text, element) : null; */
+            console.log(element);
+            const text = document.createElement('span');
+            text.textContent = ':'
+
+
+
+            if (element.className == 'minutes') element = li.insertBefore(text, element);
+            else
+            if (element.className == 'seconds') element = li.insertBefore(text, element);
+            else return
+
+
 
         })
 
+        console.log(li);
 
 
     }

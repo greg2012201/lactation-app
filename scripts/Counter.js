@@ -56,7 +56,7 @@ class Counter {
         // time.getUnitsOutProcessing().hours;
         /*  this.zerosAndNegativeNumbersDisplay([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]); */
         this.time.displayTest([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]);
-        console.log(this.hours);
+
         /*   console.log(this.time.displayTest([this.hours, this.minutes, this.seconds])); */
 
     }
