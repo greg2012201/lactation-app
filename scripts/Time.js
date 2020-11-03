@@ -54,12 +54,12 @@ class Time {
     getLocalDate() {
         const date = this.initNewDate();
         return {
-            year: date.getFullYear(),
-            month: date.getMonth() + 1,
-            day: date.getDate(),
-            hour: date.getHours(),
-            minute: date.getMinutes(),
-            second: date.getSeconds(),
+            years: date.getFullYear(),
+            months: date.getMonth() + 1,
+            days: date.getDate(),
+            hours: date.getHours(),
+            minutes: date.getMinutes(),
+            seconds: date.getSeconds(),
         }
 
     }
@@ -87,7 +87,7 @@ class Time {
 
     zeroAndNegativeNumbersBehavior(units) {
 
-        let dsplUnits = [];
+        const dsplUnits = [];
         units.forEach((unit) => {
             unit <= 9 && unit >= 0 ? unit = `0${unit}` : unit;
             return dsplUnits.push(unit);
@@ -105,10 +105,10 @@ class Time {
         let minutes = timeUnits[1];
         let seconds = timeUnits[2];
 
-
+        // zrobić funkcję addZero ? w środku ? 
 
         if (minutes === -60) {
-            minutes = '00';
+            minutes = '00'; // uwaga te stringi pochywcić w zmienną albo zrobić to przez konkatenacje przykład minutes-(+)=`0${minutes}`
             hours -= 1
         } /* else { */
 
@@ -128,8 +128,11 @@ class Time {
     }
 
     render(renderArea, timeUnits) {
+
+
         if (renderArea === null) return
         else renderArea.forEach((area, i) => area.textContent = timeUnits[i]);
+        console.log(timeUnits);
         return timeUnits
 
     }

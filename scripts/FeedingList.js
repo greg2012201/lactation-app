@@ -10,12 +10,14 @@ class FeedingList {
 
 
 
-        /*  this.li.textContent = `${this.time.getLocalTime().hours}:${this.time.getLocalTime().minutes}:${this.time.getLocalTime().seconds}`; */ // zastanowić się czy nie zrezygnować z metody getLocalTime ? 
-        /*  this.ul.appendChild(this.li);
-         this.li = this.ul.insertBefore(text, this.li) */
 
-        this.ul.appendChild(this.createLi())
-        console.log(this.time.getLocalDate().hour);
+        const li = this.createLi();
+        const localDate = this.time.getLocalDate()
+        this.ul.appendChild(li.parent);
+        this.time.displayTest([localDate.hours, localDate.minutes, localDate.seconds], [li.hoursArea, li.minutesArea, li.secondsArea]);
+
+
+
         // powinien wejść sam local time teraz jako obiekt zwrócony
 
     }
@@ -25,27 +27,7 @@ class FeedingList {
         const li = document.createElement('li');
 
 
-
-
-
-        for (let i = 0; i < 3; i++) {
-
-
-            const span = document.createElement('span');
-            li.appendChild(span);
-            if (i == 0) span.className = 'hours';
-            else if (i == 1) {
-                span.className = 'minutes';
-                createBefore(li, span);
-
-            } else {
-                span.className = 'seconds';
-                createBefore(li, span);
-            }
-        }
-
-
-        function createBefore(parent, elementAfter) {
+        const createBefore = (parent, elementAfter) => {
 
             const span = document.createElement('span');
             span.textContent = ':'
@@ -53,7 +35,38 @@ class FeedingList {
             return span
         }
 
-        return li;
+
+        for (let i = 0; i < 3; i++) {
+
+
+            const span = document.createElement('span');
+            li.appendChild(span);
+            if (i == 0) {
+
+                span.className = 'hoursArea';
+            } else if (i == 1) {
+
+                span.className = 'minutesArea';
+
+                createBefore(li, span);
+
+            } else {
+
+                span.className = 'secondsArea';
+                createBefore(li, span);
+            }
+        }
+
+        const liNode = {
+            parent: li,
+            hoursArea: li.childNodes[0],
+            minutesArea: li.childNodes[2],
+            secondsArea: li.childNodes[4],
+
+        }
+
+
+        return liNode;
 
 
     }
