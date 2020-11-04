@@ -132,7 +132,6 @@ class Time {
 
         if (renderArea === null) return
         else renderArea.forEach((area, i) => area.textContent = timeUnits[i]);
-        console.log(timeUnits);
         return timeUnits
 
     }

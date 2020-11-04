@@ -12,13 +12,14 @@ class FeedingList {
 
 
         const li = this.createLi();
+        console.log(li.hoursArea);
         const localDate = this.time.getLocalDate()
         this.ul.appendChild(li.parent);
         this.time.displayTest([localDate.hours, localDate.minutes, localDate.seconds], [li.hoursArea, li.minutesArea, li.secondsArea]);
 
 
 
-        // powinien wejść sam local time teraz jako obiekt zwrócony
+
 
     }
 
@@ -35,36 +36,41 @@ class FeedingList {
             return span
         }
 
+        const liNode = {
+            parent: li,
+            hoursArea: this.hoursArea,
+            minutesArea: this.minutesArea,
+            secondsArea: this.secondsArea,
 
-        for (let i = 0; i < 3; i++) {
+        }
+        // tutaj możemy mapować jeżeli będzie wcześniej o
+        for (const key in liNode) {
 
 
             const span = document.createElement('span');
             li.appendChild(span);
-            if (i == 0) {
+            if (key == 'hoursArea') {
 
                 span.className = 'hoursArea';
-            } else if (i == 1) {
+                liNode.hoursArea = span;
+            } else if (key == 'minutesArea') {
 
                 span.className = 'minutesArea';
 
                 createBefore(li, span);
-
-            } else {
+                liNode.minutesArea = span;
+            } else if (key == 'secondsArea') {
 
                 span.className = 'secondsArea';
                 createBefore(li, span);
+                liNode.secondsArea = span;
             }
-        }
-
-        const liNode = {
-            parent: li,
-            hoursArea: li.childNodes[0],
-            minutesArea: li.childNodes[2],
-            secondsArea: li.childNodes[4],
 
         }
 
+
+
+        console.log(liNode);
 
         return liNode;
 
