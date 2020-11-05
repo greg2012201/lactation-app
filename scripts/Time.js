@@ -60,26 +60,19 @@ class Time {
 
     zeroAndNegativeNumbersBehavior(units) {
 
-        const dsplUnits = [];
-        units.forEach((unit) => {
-            unit <= 9 && unit >= 0 ? unit = `0${unit}` : unit;
-
-            return dsplUnits.push(unit);
-
-        })
-
-
-        return this.negativeNumbersBehavior(dsplUnits);
+        return this.negativeNumbersBehavior(units.map((unit) => unit <= 9 && unit >= 0 ? unit = `0${unit}` : unit));
     }
 
     negativeNumbersBehavior(timeUnits) {
+
+
+        // podać jako obiekty w tablicy ? żeby łatwiej deskturkturyzować ? 
 
         let dsplUnits = []
         let hours = timeUnits[0];
         let minutes = timeUnits[1];
         let seconds = timeUnits[2];
-
-        // zrobić funkcję addZero ? w środku ? 
+        // pasuje tutaj to ugryźć mapem
 
         if (minutes === -60) {
             minutes = '00'; // uwaga te stringi pochywcić w zmienną albo zrobić to przez konkatenacje przykład minutes-(+)=`0${minutes}`
