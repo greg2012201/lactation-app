@@ -3,6 +3,7 @@ class Counter {
     constructor() {
 
         this.time = new Time();
+
         this.nextFeeding = document.querySelector('.next-feeding');
         this.secondsSpan = document.querySelector('.seconds')
         this.minutesSpan = document.querySelector('.minutes');
@@ -21,7 +22,6 @@ class Counter {
 
 
         this.stopAndReset();
-
         this.indexInterval = setInterval(() => {
             this.getDifferenceBetweenDates(actualTimeInMilliseconds(), endTimeInMilliseconds);
             this.print();
@@ -29,15 +29,12 @@ class Counter {
         }, 1000);
     }
     getDifferenceBetweenDates(nowTime, endTime) {
-        // end time i now time wyodrębnić tutaj przejmujać metody z Time.js 
+
 
         this.hours = Math.floor((endTime / (1000 * 60 * 60) - nowTime / (1000 * 60 * 60)) % 24)
-
-        // zmienić nazwy zmiennych na np. secondsToEnd
         this.minutes = Math.floor((endTime / (1000 * 60) - nowTime / (1000 * 60)) % 60);
         this.seconds = Math.floor((endTime / 1000 - nowTime / 1000) % 60);
 
-        this.hours <= -1 ? this.hours = this.hours + 1 : this.hours; // zinterpretować to w princie ? 
 
     }
 

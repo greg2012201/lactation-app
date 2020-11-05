@@ -17,16 +17,15 @@ class Time {
     getEndTimeInMilliseconds() {
 
         const getLocalDate = this.getLocalDate();
-        return this.initNewDate(`${getLocalDate.years}-${getLocalDate.months}-${getLocalDate.days} ${getLocalDate.hours}:${getLocalDate.minutes}:${getLocalDate.seconds}`).addHours(2, 1).getTime(); /* .addHours(2, 1); */
+        return this.initNewDate(`${getLocalDate.years}-${getLocalDate.months}-${getLocalDate.days} ${getLocalDate.hours}:${getLocalDate.minutes}:${getLocalDate.seconds}`).addHours(2, 1).getTime();
 
     }
 
 
     dsiplayEndTime(renderArea) {
 
-        const date = this.initNewDate();
-        date.addHours(2, 0);
-        return this.display([date.getHours(), date.getMinutes(), date.getSeconds()], renderArea) //<-- będzie tutuaj metoda na local time poprawić bo za dużo wywołań
+        const date = this.initNewDate().addHours(2, 0);
+        return this.display([date.getHours(), date.getMinutes(), date.getSeconds()], renderArea);
 
     }
     getLocalDate() {
@@ -64,11 +63,12 @@ class Time {
         const dsplUnits = [];
         units.forEach((unit) => {
             unit <= 9 && unit >= 0 ? unit = `0${unit}` : unit;
+
             return dsplUnits.push(unit);
 
         })
 
-        /*  return dsplUnits; */
+
         return this.negativeNumbersBehavior(dsplUnits);
     }
 
@@ -90,6 +90,7 @@ class Time {
         seconds === -60 ? seconds = '00' : seconds;
         seconds <= -1 ? minutes += 1 : minutes;
         minutes === 0 ? minutes = '00' : minutes;
+        hours <= -1 ? hours = hours + 1 : hours;
         /* } */ // sprawdzić to czy działa
 
 
