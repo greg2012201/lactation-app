@@ -44,7 +44,7 @@ class Counter {
     print() {
 
 
-        this.time.displayTest([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]);
+        this.time.display([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]);
 
 
 

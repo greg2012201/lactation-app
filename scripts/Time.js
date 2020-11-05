@@ -26,12 +26,7 @@ class Time {
 
         const date = this.initNewDate();
         date.addHours(2, 0);
-
-
-
-
-
-        return this.displayTest([date.getHours(), date.getMinutes(), date.getSeconds()], renderArea) //<-- będzie tutuaj metoda na local time 
+        return this.display([date.getHours(), date.getMinutes(), date.getSeconds()], renderArea) //<-- będzie tutuaj metoda na local time poprawić bo za dużo wywołań
 
     }
     getLocalDate() {
@@ -52,12 +47,8 @@ class Time {
         return new Date().getTime();
     }
 
-    display(unit) {
-        // tutaj umieścić wszystko co potrzeba do warunków jako argumenty zrobić obiekt prymitywny wtedy metoda ta stanie się reużywalna niech ta metoda modyfikuje zawartośći w zmiennych a nie bezpośrednio na stronie, albo pozostać na tablicach bo nie wiadomo czy się to wszytsko bez dublowania kodu zrobi UWAGA MOŻNA JESZCZE STOSOWAĆ PĘTLE PO OBIEKTACH TO WYPRÓBOWAĆ    /* https://kursjs.pl/kurs/obiekty/obiekty.php */
 
-        return unit <= 9 ? `0${unit}` : unit;
-    }
-    displayTest(timeUnits, renderArea = null) {
+    display(timeUnits, renderArea = null) {
 
         const outputUnits = this.zeroAndNegativeNumbersBehavior(timeUnits);
 

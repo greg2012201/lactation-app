@@ -14,7 +14,7 @@ class FeedingList {
         const li = this.createLi();
         const localDate = this.time.getLocalDate()
         this.ul.appendChild(li.parent);
-        this.time.displayTest([localDate.hours, localDate.minutes, localDate.seconds], [li.hoursArea, li.minutesArea, li.secondsArea]);
+        this.time.display([localDate.hours, localDate.minutes, localDate.seconds], [li.hoursArea, li.minutesArea, li.secondsArea]);
 
 
 
