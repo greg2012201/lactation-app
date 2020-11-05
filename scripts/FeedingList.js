@@ -12,7 +12,6 @@ class FeedingList {
 
 
         const li = this.createLi();
-        console.log(li.hoursArea);
         const localDate = this.time.getLocalDate()
         this.ul.appendChild(li.parent);
         this.time.displayTest([localDate.hours, localDate.minutes, localDate.seconds], [li.hoursArea, li.minutesArea, li.secondsArea]);
@@ -67,11 +66,6 @@ class FeedingList {
             }
 
         }
-
-
-
-        console.log(liNode);
-
         return liNode;
 
 

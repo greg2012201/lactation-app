@@ -1,34 +1,23 @@
 class Time {
 
 
-    initNewDate() {
-        Date.prototype.addHours = function (h, s) {
-            this.setTime(this.getTime() + (h * 60 * 60 * 1000) + s * 1000);
+    initNewDate(param = null) {
+
+        Date.prototype.addHours = function (hours, seconds) {
+            this.setTime(this.getTime() + (hours * 60 * 60 * 1000) + seconds * 1000);
             return this;
         }
 
-        return new Date();
+        return param == null ? new Date() : new Date(param)
+
 
     }
 
 
     getEndTimeInMilliseconds() {
-        // endTime niech sobi jednak przetworzy w counterze
-        //albo druga opcja to użyć tu display 
-        const date = this.initNewDate().addHours(2, 1);
-        const year = date.getFullYear();
-        const month = date.getMonth() + 1;
-        const day = date.getDate();
-        const hour = date.getHours();
-        const minute = date.getMinutes();
-        const second = date.getSeconds();
-        // będzie tutaj użyta metoda do getLocal date jako obiekt
 
-        const endTime = new Date(`${year}-${month}-${day} ${hour}:${minute}:${second}`).getTime();
-
-
-
-        return endTime;
+        const getLocalDate = this.getLocalDate();
+        return this.initNewDate(`${getLocalDate.years}-${getLocalDate.months}-${getLocalDate.days} ${getLocalDate.hours}:${getLocalDate.minutes}:${getLocalDate.seconds}`).addHours(2, 1).getTime(); /* .addHours(2, 1); */
 
     }
 
@@ -42,13 +31,7 @@ class Time {
 
 
 
-        return this.displayTest([date.getHours(), date.getMinutes(), date.getSeconds()], renderArea) //<-- będzie tutuaj metoda na local time jeszcze osobna, zwraca ona obiekt prosty
-        // return timeToDisplay;
-
-        /* const hoursToDsplay = this.display(hour);
-        const minutesToDsplay = this.display(minute);
-        const secondsToDsplay = this.display(second);
-        return `${hoursToDsplay}:${minutesToDsplay}:${secondsToDsplay}`; */
+        return this.displayTest([date.getHours(), date.getMinutes(), date.getSeconds()], renderArea) //<-- będzie tutuaj metoda na local time 
 
     }
     getLocalDate() {

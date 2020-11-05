@@ -71,10 +71,9 @@ class Counter {
 
     negativeNumbersBehavior(timeUnits, renderAreas) {
 
-        // tutaj też pasuje zamienić na obiekty
-        // rodzielić tutuaj printowanie od logiki czasu by pasowało być może juz w Time.js, osobna metoda wpływa na liczby osobna je printuje, przypisuje do textContent
 
-        for (let i = 0; i < renderAreas.length; i++) {
+
+        for (let i = 0; i < renderAreas.length; i++) { // zrobić tutaj optymalizację i jakoś to zautomatyzować
             const hoursArea = renderAreas[0]
             const minutesArea = renderAreas[1];
             const secondsArea = renderAreas[2];
@@ -84,7 +83,7 @@ class Counter {
 
             timeUnits[i] <= -1 ? renderAreas[i].textContent = timeUnits[i] : null;
 
-            if (minutes === -60) {
+            if (minutes === -60) { // dać tu return pd razu przed blokiem kodu ?? 
                 minutesArea.textContent = '00';
                 minutesArea.textContent == '00' ?
                     hoursArea.textContent = hours - 1 : null;
