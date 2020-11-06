@@ -70,8 +70,6 @@ class FeedingList {
 
 
     }
-
-
     clearList() {
 
         document.querySelectorAll('li').forEach(li => li.remove());

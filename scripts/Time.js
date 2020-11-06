@@ -66,9 +66,9 @@ class Time {
     negativeNumbersBehavior(timeUnits) {
 
 
-        // podać jako obiekty w tablicy ? żeby łatwiej deskturkturyzować ? 
 
-        let dsplUnits = []
+
+        let dsplUnits = [] // zmutować tak jak poprzednio w jednej linijce może się uda bez dodatkowej zmiennej
         let hours = timeUnits[0];
         let minutes = timeUnits[1];
         let seconds = timeUnits[2];
