@@ -17,7 +17,7 @@ class Time {
     getEndTimeInMilliseconds() {
 
         const getLocalDate = this.getLocalDate();
-        return this.initNewDate(`${getLocalDate.years}-${getLocalDate.months}-${getLocalDate.days} ${getLocalDate.hours}:${getLocalDate.minutes}:${getLocalDate.seconds}`).addHours(2, 1).getTime();
+        return this.initNewDate(`${getLocalDate.years}-${getLocalDate.months}-${getLocalDate.days} ${getLocalDate.hours -2 }:${getLocalDate.minutes}:${getLocalDate.seconds}`).addHours(2, 1).getTime();
 
     }
 
@@ -49,6 +49,8 @@ class Time {
 
     display(timeUnits, renderArea = null) {
 
+
+
         const outputUnits = this.zeroAndNegativeNumbersBehavior(timeUnits);
 
         // this.negativeNumbersBehavior();
@@ -60,7 +62,8 @@ class Time {
 
     zeroAndNegativeNumbersBehavior(units) {
 
-        return this.negativeNumbersBehavior(units.map((unit) => unit <= 9 && unit >= 0 ? unit = `0${unit}` : unit));
+        return this.negativeNumbersBehavior(units.map((unit) =>
+            unit <= 9 && unit >= 0 ? unit = `0${unit}` : unit))
     }
 
     negativeNumbersBehavior(timeUnits) {
@@ -68,7 +71,7 @@ class Time {
 
 
 
-        let dsplUnits = [] // zmutować tak jak poprzednio w jednej linijce może się uda bez dodatkowej zmiennej
+        /* let dsplUnits = [] // zmutować tak jak poprzednio w jednej linijce może się uda bez dodatkowej zmiennej
         let hours = timeUnits[0];
         let minutes = timeUnits[1];
         let seconds = timeUnits[2];
@@ -77,20 +80,26 @@ class Time {
         if (minutes === -60) {
             minutes = '00'; // uwaga te stringi pochywcić w zmienną albo zrobić to przez konkatenacje przykład minutes-(+)=`0${minutes}`
             hours -= 1
-        } /* else { */
+        }
 
 
         seconds === -60 ? seconds = '00' : seconds;
         seconds <= -1 ? minutes += 1 : minutes;
         minutes === 0 ? minutes = '00' : minutes;
         hours <= -1 ? hours = hours + 1 : hours;
-        /* } */ // sprawdzić to czy działa
+
 
 
         dsplUnits.push(hours, minutes, seconds)
 
 
-        return dsplUnits
+        return dsplUnits */
+
+        return timeUnits.map(unit => {
+
+            return unit === -60 ? unit = '00' : unit; // tutaj zmienną ogarnąć ? 
+
+        })
 
 
     }
