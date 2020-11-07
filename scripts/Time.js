@@ -17,7 +17,7 @@ class Time {
     getEndTimeInMilliseconds() {
 
         const getLocalDate = this.getLocalDate();
-        return this.initNewDate(`${getLocalDate.years}-${getLocalDate.months}-${getLocalDate.days} ${getLocalDate.hours -2 }:${getLocalDate.minutes}:${getLocalDate.seconds}`).addHours(2, 1).getTime();
+        return this.initNewDate(`${getLocalDate.years}-${getLocalDate.months}-${getLocalDate.days} ${getLocalDate.hours-2 }:${getLocalDate.minutes}:${getLocalDate.seconds}`).addHours(2, 1).getTime();
 
     }
 
@@ -26,6 +26,7 @@ class Time {
 
         const date = this.initNewDate().addHours(2, 0);
         return this.display([date.getHours(), date.getMinutes(), date.getSeconds()], renderArea);
+        // spróbować to tak przebudować żeby tego tutuaj nie używać albo żeby było opcją samego display, ta metoda to powatarzanie się musi to być 
 
     }
     getLocalDate() {
@@ -49,60 +50,27 @@ class Time {
 
     display(timeUnits, renderArea = null) {
 
-
-
         const outputUnits = this.zeroAndNegativeNumbersBehavior(timeUnits);
-
-        // this.negativeNumbersBehavior();
-
         return this.render(renderArea, outputUnits); //chyba że obiekt zwrócić ? 
-
 
     }
 
     zeroAndNegativeNumbersBehavior(units) {
 
-        return this.negativeNumbersBehavior(units.map((unit) =>
-            unit <= 9 && unit >= 0 ? unit = `0${unit}` : unit))
-    }
+        return units.map((unit) => {
 
-    negativeNumbersBehavior(timeUnits) {
+            if (unit <= -1) {
 
+                unit += 1
+            }
 
+            return unit <= 9 && unit >= 0 ? unit = `0${unit}` : unit;
 
-
-        /* let dsplUnits = [] // zmutować tak jak poprzednio w jednej linijce może się uda bez dodatkowej zmiennej
-        let hours = timeUnits[0];
-        let minutes = timeUnits[1];
-        let seconds = timeUnits[2];
-        // pasuje tutaj to ugryźć mapem
-
-        if (minutes === -60) {
-            minutes = '00'; // uwaga te stringi pochywcić w zmienną albo zrobić to przez konkatenacje przykład minutes-(+)=`0${minutes}`
-            hours -= 1
-        }
-
-
-        seconds === -60 ? seconds = '00' : seconds;
-        seconds <= -1 ? minutes += 1 : minutes;
-        minutes === 0 ? minutes = '00' : minutes;
-        hours <= -1 ? hours = hours + 1 : hours;
-
-
-
-        dsplUnits.push(hours, minutes, seconds)
-
-
-        return dsplUnits */
-
-        return timeUnits.map(unit => {
-
-            return unit === -60 ? unit = '00' : unit; // tutaj zmienną ogarnąć ? 
 
         })
 
-
     }
+
 
     render(renderArea, timeUnits) {
 
