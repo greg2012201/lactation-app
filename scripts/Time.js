@@ -22,14 +22,6 @@ class Time {
 
     }
 
-
-    dsiplayEndTime(renderArea) {
-
-        const date = this.initNewDate().addHours(2, 0);
-        return this.display([date.getHours(), date.getMinutes(), date.getSeconds()], renderArea);
-        // spróbować to tak przebudować żeby tego tutuaj nie używać albo żeby było opcją samego display, ta metoda to powatarzanie się musi to być 
-
-    }
     getLocalDate() {
         const date = this.initNewDate();
         return {
