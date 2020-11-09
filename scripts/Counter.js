@@ -5,9 +5,12 @@ class Counter {
         this.time = new Time();
 
         this.nextFeeding = document.querySelector('.next-feeding');
-        this.secondsSpan = document.querySelector('.seconds')
-        this.minutesSpan = document.querySelector('.minutes');
-        this.hoursSpan = document.querySelector('.hours');
+        this.reamainingTime = document.querySelector('.remaining-time');
+        /*   this.secondsSpan = document.querySelector('.seconds')
+          this.minutesSpan = document.querySelector('.minutes');
+          this.hoursSpan = document.querySelector('.hours'); */
+
+        // do optymalizacji, potrzebna metoda w maine albo gdzieś indziej która wykonuje operacje na render areas może inna klasa niech coś z tym robi ? taka co dostaje argument 
 
     }
 
@@ -43,7 +46,7 @@ class Counter {
     print() {
 
 
-        this.time.display([this.hours, this.minutes, this.seconds], [this.hoursSpan, this.minutesSpan, this.secondsSpan]);
+        this.time.display([this.hours, this.minutes, this.seconds], this.reamainingTime.querySelectorAll('span'));
 
 
 
@@ -58,8 +61,8 @@ class Counter {
         const _minutesArea = this.nextFeeding.querySelector('.end-minutes')
         const _secondsArea = this.nextFeeding.querySelector('.end-seconds')
 
-
-        this.time.display([_date.getHours(), _date.getMinutes(), _date.getSeconds()], [_hoursArea, _minutesArea, _secondsArea]);
+        console.log(this.nextFeeding.childNodes);
+        this.time.display([_date.getHours(), _date.getMinutes(), _date.getSeconds()], this.nextFeeding.querySelectorAll('span'));
     }
 
     stopAndReset() {

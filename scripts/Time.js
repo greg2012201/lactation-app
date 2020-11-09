@@ -71,7 +71,9 @@ class Time {
 
 
         if (renderArea === null) return
-        else renderArea.forEach((area, i) => area.textContent = timeUnits[i]);
+        else renderArea.forEach((area, i) => {
+            area.textContent = timeUnits[i];
+        });
         return timeUnits
 
     }
