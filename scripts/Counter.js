@@ -13,7 +13,9 @@ class Counter {
 
     init() {
 
-        this.countingDown(this.time.getActualTimeInMilliseconds, this.time.getEndTimeInMilliseconds());
+        this.countingDown(this.time.getActualTimeInMilliseconds,
+            this.time.getEndTimeInMilliseconds());
+
 
 
     }
@@ -50,7 +52,14 @@ class Counter {
 
     displayNextFeedingTime() {
 
-        this.time.dsiplayEndTime(this.nextFeeding.querySelectorAll('span'));
+        const _date = this.time.initNewDate().addHours(this.hours, this.seconds);
+
+        const _hoursArea = this.nextFeeding.querySelector('.end-hours')
+        const _minutesArea = this.nextFeeding.querySelector('.end-minutes')
+        const _secondsArea = this.nextFeeding.querySelector('.end-seconds')
+
+
+        this.time.display([_date.getHours(), _date.getMinutes(), _date.getSeconds()], [_hoursArea, _minutesArea, _secondsArea]);
     }
 
     stopAndReset() {

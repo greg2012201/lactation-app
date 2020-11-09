@@ -12,6 +12,7 @@ const feed = () => {
     feedingList.addLi();
     animations.init();
 
+
 }
 document.querySelector('.feed-btn').addEventListener('click', feed);
 

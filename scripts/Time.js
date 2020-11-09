@@ -5,6 +5,7 @@ class Time {
 
         Date.prototype.addHours = function (hours, seconds) {
             this.setTime(this.getTime() + (hours * 60 * 60 * 1000) + seconds * 1000);
+
             return this;
         }
 
@@ -17,7 +18,7 @@ class Time {
     getEndTimeInMilliseconds() {
 
         const getLocalDate = this.getLocalDate();
-        return this.initNewDate(`${getLocalDate.years}-${getLocalDate.months}-${getLocalDate.days} ${getLocalDate.hours-2 }:${getLocalDate.minutes}:${getLocalDate.seconds}`).addHours(2, 1).getTime();
+        return this.initNewDate(`${getLocalDate.years}-${getLocalDate.months}-${getLocalDate.days} ${getLocalDate.hours}:${getLocalDate.minutes}:${getLocalDate.seconds}`).addHours(2, 1).getTime();
 
     }
 
@@ -49,9 +50,11 @@ class Time {
 
 
     display(timeUnits, renderArea = null) {
-
+        console.log(timeUnits);
         const outputUnits = this.zeroAndNegativeNumbersBehavior(timeUnits);
+
         return this.render(renderArea, outputUnits); //chyba że obiekt zwrócić ? 
+        ;
 
     }
 
