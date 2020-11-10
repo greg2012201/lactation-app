@@ -8,19 +8,12 @@ class FeedingList {
 
     addLi() {
 
-
-
-
         const li = this.createLi();
         const localDate = this.time.getLocalDate()
         this.ul.appendChild(li);
 
 
         this.time.display([localDate.hours, localDate.minutes, localDate.seconds], li.querySelectorAll('span'));
-
-
-
-
 
     }
 
@@ -35,10 +28,5 @@ class FeedingList {
     clearList() {
 
         document.querySelectorAll('li').forEach(li => li.remove());
-
-
     }
-
-
-
 }

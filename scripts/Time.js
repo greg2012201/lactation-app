@@ -22,6 +22,11 @@ class Time {
 
     }
 
+    getActualTimeInMilliseconds() {
+
+        return new Date().getTime();
+    }
+
     getLocalDate() {
         const date = this.initNewDate();
         return {
@@ -35,18 +40,12 @@ class Time {
 
     }
 
-    getActualTimeInMilliseconds() {
-
-        return new Date().getTime();
-    }
-
 
     display(timeUnits, renderArea = null) {
-        console.log(timeUnits);
+
         const outputUnits = this.zeroAndNegativeNumbersBehavior(timeUnits);
 
-        return this.render(renderArea, outputUnits); //chyba że obiekt zwrócić ? 
-        ;
+        return this.render(renderArea, outputUnits);;
 
     }
 

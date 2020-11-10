@@ -17,8 +17,9 @@ class Counter {
 
     }
 
-    countingDown(actualTimeInMilliseconds, endTimeInMilliseconds) {
+    countingDown(callback, endTimeInMilliseconds) { // callback ?
 
+        const actualTimeInMilliseconds = callback;
 
         this.stopAndReset();
         this.indexInterval = setInterval(() => {
@@ -51,7 +52,7 @@ class Counter {
 
         const _date = this.time.initNewDate().addHours(this.hours, this.seconds);
 
-        console.log(this.nextFeeding.childNodes);
+
         this.time.display([_date.getHours(), _date.getMinutes(), _date.getSeconds()], this.nextFeeding.querySelectorAll('span'));
     }
 
