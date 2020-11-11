@@ -1,9 +1,8 @@
 class Animations {
     constructor() {
-        this.nextFeeding = document.querySelector('.next-feeding');
+        this.nextFeeding = document.querySelector('.start-time');
 
     }
-
     init() {
 
         this.activateNextFeeding();
@@ -11,20 +10,20 @@ class Animations {
 
     }
     activateNextFeeding() {
-        this.nextFeeding.classList.add('active');
+        this.nextFeeding.classList.add('start-time--active');
     }
 
     animationOfAppearanceOfListItems() {
 
-        document.querySelectorAll('li').forEach(li => {
-            setTimeout(() => li.classList.add('active'), 10)
+        document.querySelectorAll('.list__list-item').forEach(li => {
+            setTimeout(() => li.classList.add('list__list-item--active'), 10)
         });
 
 
     }
     deactivateNextFeeding() {
 
-        this.nextFeeding.classList.remove('active');
+        this.nextFeeding.classList.remove('start-time--active');
     }
 
 

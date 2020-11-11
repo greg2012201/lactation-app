@@ -14,7 +14,7 @@ const feed = () => {
 
 
 }
-document.querySelector('.feed-btn').addEventListener('click', feed);
+document.querySelector('.clock__start-button').addEventListener('click', feed);
 
 
 const reset = () => {
@@ -24,4 +24,4 @@ const reset = () => {
     animations.deactivateNextFeeding();
 
 }
-document.querySelector('.reset').addEventListener('click', reset);
+document.querySelector('.app__reset-icon').addEventListener('click', reset);

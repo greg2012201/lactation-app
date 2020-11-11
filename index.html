@@ -14,24 +14,29 @@
         <title>Zegar laktacji</title>
     </head>
 
-    <body>
-        <audio src=""></audio> 
-        <i class="fas fa-window-close reset"></i>
-        <h1>zegar laktacji</h1>
-        <h2>Godzina ostatniego karmienia:</h2>
-        <div class="hours-list">
+    <body class="app">
+        
+        <i class=" app__reset-icon fas fa-window-close"></i>
+        <h1 class="app__title">zegar laktacji</h1>
+        <div class="end-time-container">
+        <h2 class="end-time-container__title">Godzina ostatniego karmienia:</h2>
+        <div class="end-time-container__list-container">
             
-            <ul>
+            <ul class="list" >
 
 
             </ul>
         </div>
-        <h2>Pozostało do następnego karmienia:</h2>
-        <div class="next-feeding"><span class="end-hours"></span>:<span
-            class="end-minutes"></span>:<span class="end-seconds"></span></div>
-        <div class="remaining-time"><span class="hours">02</span>:<span
-                class="minutes">00</span>:<span class="seconds">00</span></div>
-        <button class="feed-btn">nakarm</button>
+    </div>
+    <div class="counter">
+        <h2 class="counter__title">Pozostało do następnego karmienia:</h2>
+        <div class="start-time"><span class="start-time__hours"></span>:<span
+            class="start-time__minutes"></span>:<span class="start-time__seconds"></span></div>
+        <div class="clock"><span class="clock__hours">02</span>:<span
+                class="clock__minutes">00</span>:<span class="clock__seconds">00</span></div>
+        <button class="clock__start-button">nakarm</button>
+
+    </div>
         <script src="./scripts/Counter.js"></script>
         <script src="./scripts/Time.js"></script>
         <script src="./scripts/FeedingList.js"></script>

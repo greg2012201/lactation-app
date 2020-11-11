@@ -4,20 +4,16 @@ class Counter {
 
         this.time = new Time();
 
-        this.nextFeeding = document.querySelector('.next-feeding');
-        this.reamainingTime = document.querySelector('.remaining-time');
+        this.nextFeeding = document.querySelector('.start-time');
+        this.reamainingTime = document.querySelector('.clock');
     }
 
     init() {
-
         this.countingDown(this.time.getActualTimeInMilliseconds,
             this.time.getEndTimeInMilliseconds());
-
-
-
     }
 
-    countingDown(callback, endTimeInMilliseconds) { // callback ?
+    countingDown(callback, endTimeInMilliseconds) {
 
         const actualTimeInMilliseconds = callback;
 
@@ -39,11 +35,7 @@ class Counter {
     }
 
     print() {
-
-
         this.time.display([this.hours, this.minutes, this.seconds], this.reamainingTime.querySelectorAll('span'));
-
-
 
     }
 
@@ -51,8 +43,6 @@ class Counter {
     displayNextFeedingTime() {
 
         const _date = this.time.initNewDate().addHours(this.hours, this.seconds);
-
-
         this.time.display([_date.getHours(), _date.getMinutes(), _date.getSeconds()], this.nextFeeding.querySelectorAll('span'));
     }
 
@@ -65,8 +55,4 @@ class Counter {
         this.print();
 
     }
-
-
-
-
 }

@@ -13,6 +13,7 @@ class FeedingList {
         this.ul.appendChild(li);
 
 
+
         this.time.display([localDate.hours, localDate.minutes, localDate.seconds], li.querySelectorAll('span'));
 
     }
@@ -20,7 +21,9 @@ class FeedingList {
     createLi() {
 
         const li = document.createElement('li');
-        li.innerHTML = '<span class="hours"></span>:<span class="minutes"></span>:<span class="seconds"></span>'
+        li.classList.add('list__list-item')
+
+        li.innerHTML = '<span class="end-time-container__hours"></span>:<span class="end-time-container__minutes"></span>:<span class="end-time-container__seconds"></span>'
 
         return li
 

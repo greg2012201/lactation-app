@@ -1,13 +1,10 @@
-/* font-family: 'Saira', sans-serif;
-font-family: 'Saira Condensed', sans-serif; */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+.app {
     max-width: 1280px;
 
     background-color: rgba(230, 176, 14, 14%);
@@ -17,7 +14,7 @@ body {
 
 
 
-i {
+.app__reset-icon {
     position: absolute;
     top: 1%;
     right: 4%;
@@ -30,7 +27,7 @@ i {
 
 
 
-h1 {
+.app__title {
     display: block;
     width: 100%;
     margin: 6vh auto;
@@ -43,7 +40,7 @@ h1 {
     font-weight: 400;
 }
 
-h2 {
+.end-time-container__title {
     display: block;
     width: 100%;
     margin: 6vh auto 0;
@@ -54,7 +51,7 @@ h2 {
     font-weight: 300;
 }
 
-ul {
+.list {
 
     display: block;
     width: 100%;
@@ -70,14 +67,14 @@ ul {
 
 }
 
-ul::-webkit-scrollbar {
+.list::-webkit-scrollbar {
     width: 6px;
     height: 100%;
     border-radius: 8px;
     background-color: rgba(249, 218, 125, 50%);
 }
 
-ul::-webkit-scrollbar-thumb {
+.list-::-webkit-scrollbar-thumb {
 
     border-radius: 8px;
     background-color: #F3C186;
@@ -87,12 +84,12 @@ ul::-webkit-scrollbar-thumb {
 
 
 
-li:nth-child(even) {
+.list__list-item:nth-child(even) {
     color: #5002D9;
 }
 
 
-li {
+.list__list-item {
     margin-bottom: 5px;
     line-height: 1.2em;
     font-size: 1.6em;
@@ -103,7 +100,7 @@ li {
     /* potrzebujemy tutaj koniecznie animacji  w tym celu trzeba podziałać z transition*/
 }
 
-li.active {
+.list__list-item--active {
 
 
     opacity: 1;
@@ -112,7 +109,7 @@ li.active {
 }
 
 
-.hours-list {
+.end-time-container__list-container {
     margin: 20px auto;
     height: 32vh;
     max-height: 32vh;
@@ -128,22 +125,21 @@ li.active {
 
 
 
-.scroll-btn-up,
-.scroll-btn-down {
-    position: absolute;
-    width: 15px;
-    height: 33px;
-    background-color: #F3C186;
-    border-radius: 8px;
-}
 
 
-h2:nth-of-type(2) {
+
+.counter__title {
     margin: 5vh auto 0;
     font-family: 'Saira Condensed', sans-serif;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.1em;
+    color: #D97F18;
+    font-weight: 300;
 }
 
-.next-feeding {
+.start-time {
     font-size: 1em;
     margin-top: 1.5vh;
     text-align: center;
@@ -154,14 +150,14 @@ h2:nth-of-type(2) {
 
 }
 
-.next-feeding.active {
+.start-time--active {
 
     opacity: 1;
 
 
 }
 
-.remaining-time {
+.clock {
     margin-top: 3vh;
     text-align: center;
     font-size: 1.6em;
@@ -169,7 +165,7 @@ h2:nth-of-type(2) {
     color: #E6420E;
 }
 
-.feed-btn {
+.clock__start-button {
     display: block;
     margin: 3vh auto;
     padding: 0 15px;

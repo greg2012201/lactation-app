@@ -1,17 +1,10 @@
 class Time {
-
-
     initNewDate(param = null) {
-
         Date.prototype.addHours = function (hours, seconds) {
             this.setTime(this.getTime() + (hours * 60 * 60 * 1000) + seconds * 1000);
-
             return this;
         }
-
         return param == null ? new Date() : new Date(param)
-
-
     }
 
 
@@ -39,20 +32,15 @@ class Time {
         }
 
     }
-
-
     display(timeUnits, renderArea = null) {
 
         const outputUnits = this.zeroAndNegativeNumbersBehavior(timeUnits);
-
         return this.render(renderArea, outputUnits);;
-
     }
 
     zeroAndNegativeNumbersBehavior(units) {
 
         return units.map((unit) => {
-
             if (unit <= -1) {
 
                 unit += 1
