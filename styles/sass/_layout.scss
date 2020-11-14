@@ -1,17 +1,31 @@
 .app {
-    @include flex-box(column);
-    @include centering(3vh);
+    @include flex-box(column, null, center);
+    @include centering();
+    padding-top: 10px;
     max-width: 1280px;
     min-height: 100vh;
+    max-height: calc(100vh - 20px);
     background-color: transparentize(rgba($main-bacground-color, 14, ), 0.86);
 
-    /*    &__reset-icon {
+    &__reset-icon {
 
         align-self: flex-end;
-    } */
+        margin: 0 10px 10px 0;
+    }
 }
 
 .end-time-container {
     width: 100%;
-    height: 40vh;
+    min-height: 40vh;
+}
+
+.list {
+    @include centering(20px);
+    width: 70%;
+    min-height: 32vh;
+}
+
+.counter {
+    margin-top: 20vh;
+    flex-basis: 30vh;
 }

@@ -4,10 +4,14 @@
 
 }
 
-@mixin flex-box($direction: row) {
+@mixin flex-box($direction: row, $content-justify: stretch, $items-align:stretch) {
+
+
 
     display: flex;
-    flex-direction: $direction
+    flex-direction: $direction;
+    justify-content: $content-justify;
+    align-items: $items-align;
 }
 
 @mixin text-style () {}
