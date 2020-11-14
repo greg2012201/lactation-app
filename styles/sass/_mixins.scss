@@ -1,0 +1,13 @@
+@mixin centering ($top: 0, $bottom:$top) {
+
+    margin: $top auto;
+
+}
+
+@mixin flex-box($direction: row) {
+
+    display: flex;
+    flex-direction: $direction
+}
+
+@mixin text-style () {}

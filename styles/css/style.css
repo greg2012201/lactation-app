@@ -6,4 +6,27 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+.app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 3vh auto;
+  max-width: 1280px;
+  min-height: 100vh;
+  background-color: rgba(230, 176, 14, 0.14);
+  /*    &__reset-icon {
+
+        align-self: flex-end;
+    } */
+}
+
+.end-time-container {
+  width: 100%;
+  height: 40vh;
+}
 /*# sourceMappingURL=style.css.map */

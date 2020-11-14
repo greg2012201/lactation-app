@@ -1,0 +1,17 @@
+.app {
+    @include flex-box(column);
+    @include centering(3vh);
+    max-width: 1280px;
+    min-height: 100vh;
+    background-color: transparentize(rgba($main-bacground-color, 14, ), 0.86);
+
+    /*    &__reset-icon {
+
+        align-self: flex-end;
+    } */
+}
+
+.end-time-container {
+    width: 100%;
+    height: 40vh;
+}
