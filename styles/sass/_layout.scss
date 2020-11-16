@@ -1,31 +1,45 @@
-.app {
-    @include flex-box(column, null, center);
-    @include centering();
-    padding-top: 10px;
-    max-width: 1280px;
-    min-height: 100vh;
-    max-height: calc(100vh - 20px);
-    background-color: transparentize(rgba($main-bacground-color, 14, ), 0.86);
+ .app {
+     @include reset;
+     @include flex-box(column, null, center);
+     @include centering();
+     padding-top: 10px;
+     max-width: 1280px;
+     min-height: 100vh;
+     max-height: 100vh;
 
-    &__reset-icon {
+     &__reset-icon {
 
-        align-self: flex-end;
-        margin: 0 10px 10px 0;
-    }
-}
+         align-self: flex-end;
+         margin: 0 0.8rem 1rem 0;
+     }
 
-.end-time-container {
-    width: 100%;
-    min-height: 40vh;
-}
+     &__title {
+         padding: 0;
+         margin: 0;
+         margin-top: -1rem;
+     }
 
-.list {
-    @include centering(20px);
-    width: 70%;
-    min-height: 32vh;
-}
 
-.counter {
-    margin-top: 20vh;
-    flex-basis: 30vh;
-}
+
+ }
+
+ .end-time-container {
+     @include reset;
+     margin-top: 5rem;
+     width: 100%;
+     min-height: 32vh;
+ }
+
+ .list {
+     @include reset;
+     @include centering(20px);
+     width: 70%;
+     height: 32vh;
+     max-height: 32vh;
+ }
+
+ .counter {
+     @include reset;
+     margin-top: 2rem;
+     flex-basis: 30vh;
+ }

@@ -1,0 +1,30 @@
+.counter {
+    @include reset();
+
+    text-align: center;
+
+
+    &__title {
+        padding: 0;
+        margin: 0;
+        @include text-style($main-font-condensed, 1.1em, $light-orange-font-color, 300, null, null);
+
+    }
+
+}
+
+.start-time {
+    margin-top: 0.5rem;
+    @include text-style($main-font-condensed, 1em, $blue-font-color, 300, null, null);
+    opacity: 0;
+    transition: .3s;
+
+    &--active {
+        opacity: 1;
+    }
+}
+
+.clock {
+    margin-top: 1rem;
+    @include text-style($main-font-condensed, 1.6em, $light-red-font-color, 300, null, null);
+}

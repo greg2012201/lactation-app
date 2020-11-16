@@ -1,0 +1,51 @@
+.end-time-container {
+    @include reset;
+
+    &__title {
+        margin-top: 2rem;
+        width: 100%;
+        text-align: center;
+        @include text-style($main-font-condensed, 1.1em, $light-orange-font-color, 300, null, null);
+    }
+}
+
+.list {
+    list-style: none;
+    overflow: scroll;
+    overflow-x: hidden;
+    color: $light-red-font-color;
+    text-align: center;
+
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 100%;
+        border-radius: 8px;
+        background-color: transparentize(rgba(#f9da7d, 125, ), 0.5);
+
+
+    }
+
+    &::-webkit-scrollbar-thumb {
+
+        border-radius: 8px;
+        background-color: #F3C186;
+
+    }
+
+    &__list-item {
+
+        @include text-style($main-font-condensed, 1.6em, null, null, null, null);
+        line-height: 1.5em;
+        transition: 1s;
+        opacity: 0;
+
+        &--active {
+            opacity: 1;
+        }
+    }
+
+    &__list-item:nth-child(even) {
+        color: $blue-font-color;
+    }
+}

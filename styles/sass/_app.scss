@@ -1,0 +1,16 @@
+.app {
+    background-color: transparentize(rgba($main-bacground-color, 14, ), 0.86);
+
+    &__reset-icon {
+        @include text-style(null, 1.9rem, $light-red-font-color, null, null, null);
+        cursor: pointer;
+
+
+    }
+
+    &__title {
+        @include text-style($main-font, 1.8rem, $light-orange-font-color, 400, uppercase, 2px);
+
+    }
+
+}
