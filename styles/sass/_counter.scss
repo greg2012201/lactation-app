@@ -6,8 +6,18 @@
 
     &__title {
         padding: 0;
-        margin: 0;
+        margin-top: 2rem;
         @include text-style($main-font-condensed, 1.1em, $light-orange-font-color, 300, null, null);
+
+        @media(orientation: landscape) {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        @media(min-height:1024px) {
+            margin-top: 6rem;
+
+        }
 
     }
 
@@ -22,9 +32,57 @@
     &--active {
         opacity: 1;
     }
+
+    @media(min-height:1024px) {
+        margin-top: 3rem;
+
+    }
+
 }
 
 .clock {
-    margin-top: 1rem;
-    @include text-style($main-font-condensed, 1.6em, $light-red-font-color, 300, null, null);
+    margin-top: 1.5rem;
+    @include text-style($main-font-condensed, 1.6em, $light-red-font-color, 400, null, null);
+
+    @media(orientation: landscape) {
+        margin-top: 0;
+
+    }
+
+    @media(orientation: landscape)and(min-width: 1024px) {
+        margin-top: 1rem;
+
+    }
+
+    @media(min-height:1024px) {
+        margin-top: 4.5rem;
+
+    }
+
+    &__start-button {
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        padding: 0 15px;
+        border-radius: 20px;
+        background-color: $buttons-color;
+        cursor: pointer;
+        @include text-style ($main-font, 1.6em, $light-orange-font-color, 400, uppercase, 1px);
+        line-height: 1.5em;
+        border: 2px solid $light-orange-font-color;
+
+        @media(orientation: landscape) {
+            margin-top: 0.2rem;
+
+        }
+
+        @media(orientation: landscape)and(min-width: 1024px) {
+            margin-top: 2rem;
+
+        }
+
+        @media(min-height:1024px) {
+            margin-top: 2rem;
+
+        }
+    }
 }

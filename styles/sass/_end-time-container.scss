@@ -2,14 +2,26 @@
     @include reset;
 
     &__title {
+        margin: 0 0;
         margin-top: 2rem;
         width: 100%;
         text-align: center;
         @include text-style($main-font-condensed, 1.1em, $light-orange-font-color, 300, null, null);
+
+        @media(orientation: landscape) {
+
+            margin-top: 0;
+        }
+
+        @media(orientation: landscape)and(min-width: 1024px) {
+            margin-top: 2rem;
+
+        }
     }
 }
 
 .list {
+
     list-style: none;
     overflow: scroll;
     overflow-x: hidden;

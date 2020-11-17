@@ -3,9 +3,14 @@
      @include flex-box(column, null, center);
      @include centering();
      padding-top: 10px;
-     max-width: 1280px;
+     max-width: 640px;
      min-height: 100vh;
      max-height: 100vh;
+
+     @media(min-height:1024px) {
+         padding-top: 3rem;
+
+     }
 
      &__reset-icon {
 
@@ -17,6 +22,15 @@
          padding: 0;
          margin: 0;
          margin-top: -1rem;
+
+         @media(orientation: landscape) {
+             margin-top: -2.9rem;
+         }
+
+         @media(orientation: landscape)and(min-width: 1024px) {
+             margin-top: 2rem;
+
+         }
      }
 
 
@@ -36,10 +50,27 @@
      width: 70%;
      height: 32vh;
      max-height: 32vh;
+
+     @media(orientation: landscape) {
+         height: 21vh;
+         max-height: 21vh;
+         margin-top: 0;
+     }
+
+     @media(orientation: landscape)and(min-width: 1024px) {
+         height: 31vh;
+         max-height: 31vh;
+         margin-top: 0.5rem;
+     }
+
+     @media(min-height:1024px) {
+         height: 34vh;
+         max-height: 34vh;
+
+     }
  }
 
  .counter {
      @include reset;
-     margin-top: 2rem;
-     flex-basis: 30vh;
+     margin-top: 1rem;
  }

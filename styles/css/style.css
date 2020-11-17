@@ -17,9 +17,15 @@
           align-items: center;
   margin: 0 auto;
   padding-top: 10px;
-  max-width: 1280px;
+  max-width: 640px;
   min-height: 100vh;
   max-height: 100vh;
+}
+
+@media (min-height: 1024px) {
+  .app {
+    padding-top: 3rem;
+  }
 }
 
 .app__reset-icon {
@@ -32,6 +38,18 @@
   padding: 0;
   margin: 0;
   margin-top: -1rem;
+}
+
+@media (orientation: landscape) {
+  .app__title {
+    margin-top: -2.9rem;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 1024px) {
+  .app__title {
+    margin-top: 2rem;
+  }
 }
 
 .end-time-container {
@@ -59,6 +77,29 @@
   max-height: 32vh;
 }
 
+@media (orientation: landscape) {
+  .list {
+    height: 21vh;
+    max-height: 21vh;
+    margin-top: 0;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 1024px) {
+  .list {
+    height: 31vh;
+    max-height: 31vh;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (min-height: 1024px) {
+  .list {
+    height: 34vh;
+    max-height: 34vh;
+  }
+}
+
 .counter {
   margin: 0;
   padding: 0;
@@ -66,9 +107,7 @@
           box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-  margin-top: 2rem;
-  -ms-flex-preferred-size: 30vh;
-      flex-basis: 30vh;
+  margin-top: 1rem;
 }
 
 .app {
@@ -100,6 +139,7 @@
 }
 
 .end-time-container__title {
+  margin: 0 0;
   margin-top: 2rem;
   width: 100%;
   text-align: center;
@@ -107,6 +147,18 @@
   font-size: 1.1em;
   color: #D97F18;
   font-weight: 300;
+}
+
+@media (orientation: landscape) {
+  .end-time-container__title {
+    margin-top: 0;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 1024px) {
+  .end-time-container__title {
+    margin-top: 2rem;
+  }
 }
 
 .list {
@@ -158,11 +210,24 @@
 
 .counter__title {
   padding: 0;
-  margin: 0;
+  margin-top: 2rem;
   font-family: "Saira Condensed", sans-serif;
   font-size: 1.1em;
   color: #D97F18;
   font-weight: 300;
+}
+
+@media (orientation: landscape) {
+  .counter__title {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-height: 1024px) {
+  .counter__title {
+    margin-top: 6rem;
+  }
 }
 
 .start-time {
@@ -180,11 +245,70 @@
   opacity: 1;
 }
 
+@media (min-height: 1024px) {
+  .start-time {
+    margin-top: 3rem;
+  }
+}
+
 .clock {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   font-family: "Saira Condensed", sans-serif;
   font-size: 1.6em;
   color: #E6420E;
-  font-weight: 300;
+  font-weight: 400;
+}
+
+@media (orientation: landscape) {
+  .clock {
+    margin-top: 0;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 1024px) {
+  .clock {
+    margin-top: 1rem;
+  }
+}
+
+@media (min-height: 1024px) {
+  .clock {
+    margin-top: 4.5rem;
+  }
+}
+
+.clock__start-button {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0 15px;
+  border-radius: 20px;
+  background-color: #F3C186;
+  cursor: pointer;
+  font-family: "Saira", sans-serif;
+  font-size: 1.6em;
+  color: #D97F18;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.5em;
+  border: 2px solid #D97F18;
+}
+
+@media (orientation: landscape) {
+  .clock__start-button {
+    margin-top: 0.2rem;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 1024px) {
+  .clock__start-button {
+    margin-top: 2rem;
+  }
+}
+
+@media (min-height: 1024px) {
+  .clock__start-button {
+    margin-top: 2rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */
